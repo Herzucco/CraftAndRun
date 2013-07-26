@@ -1,0 +1,1738 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"debu",
+				"debugDraw"
+			],
+			[
+				"re",
+				"requestAnimationFrame"
+			],
+			[
+				"entit",
+				"entity  (variable)"
+			],
+			[
+				"direc",
+				"directionY"
+			],
+			[
+				"velocity",
+				"velocityX"
+			],
+			[
+				"gr",
+				"greyscale  (variable)"
+			],
+			[
+				"dest",
+				"dest_a"
+			],
+			[
+				"clamp",
+				"clampDegrees"
+			],
+			[
+				"satura",
+				"saturation  (function)"
+			],
+			[
+				"parse",
+				"parsePercent"
+			],
+			[
+				"par",
+				"parsePercent"
+			],
+			[
+				"Shu",
+				"ShuttlePath"
+			],
+			[
+				"target",
+				"targetIndex"
+			],
+			[
+				"ke",
+				"keyframes"
+			],
+			[
+				"Time",
+				"TimelineKeyframe"
+			],
+			[
+				"Sh",
+				"ShuttleWaypoint"
+			],
+			[
+				"Shuttle",
+				"ShuttleWaypoint"
+			],
+			[
+				"In",
+				"Instance"
+			],
+			[
+				"wayp",
+				"waypoints"
+			],
+			[
+				"p",
+				"pathVertex"
+			],
+			[
+				"is",
+				"isUpdatingPath"
+			],
+			[
+				"way",
+				"waypoints"
+			],
+			[
+				"dyna",
+				"dynamicVertex"
+			],
+			[
+				"up",
+				"isUpdatingPath"
+			],
+			[
+				"Timeli",
+				"TimelineKeyframe"
+			],
+			[
+				"wa",
+				"waypoints"
+			],
+			[
+				"waypoi",
+				"waypoint"
+			],
+			[
+				"dyn",
+				"dynamicVertex"
+			],
+			[
+				"Vec",
+				"Vector3	x, y, z"
+			],
+			[
+				"waypo",
+				"waypoint"
+			],
+			[
+				"waypoint",
+				"waypointPosition"
+			],
+			[
+				"sqr",
+				"sqrMagnitude"
+			],
+			[
+				"WorldT",
+				"WorldToViewportPoint	position"
+			],
+			[
+				"Remove",
+				"RemoveVertexAt"
+			],
+			[
+				"World",
+				"WorldToViewportPoint	position"
+			],
+			[
+				"Waypoint",
+				"ShuttleWaypoint"
+			],
+			[
+				"waypoin",
+				"waypointsVertices"
+			],
+			[
+				"dynamic",
+				"dynamicVertexIndex"
+			],
+			[
+				"dynam",
+				"dynamicVertices"
+			],
+			[
+				"Worl",
+				"WorldToViewportPoint	position"
+			],
+			[
+				"ex",
+				"exclusion"
+			],
+			[
+				"gamma",
+				"gammaToLinear"
+			],
+			[
+				"gray",
+				"grayscale"
+			],
+			[
+				"e",
+				"exclusion"
+			],
+			[
+				"create",
+				"createBlendFunction"
+			],
+			[
+				"global",
+				"globalCompositeOperation  (variable)"
+			],
+			[
+				"left",
+				"leftAlpha"
+			],
+			[
+				"right",
+				"rightAlpha"
+			],
+			[
+				"toRGB",
+				"toRgbString  (function)"
+			],
+			[
+				"proto",
+				"prototype  (variable)"
+			],
+			[
+				"this",
+				"treeInstance.heightScale	[var]"
+			],
+			[
+				"useWorl",
+				"useWorldSpace	LineRenderer.*"
+			],
+			[
+				"Viewport",
+				"ViewportToWorldPoint	Camera.*(position)"
+			],
+			[
+				"Color",
+				"Color	GL.*(c)"
+			],
+			[
+				"LineRendere",
+				"LineRenderer.SetVertexCount	*(count)"
+			],
+			[
+				"LineRender",
+				"LineRenderer.SetPosition	*(index, position)"
+			],
+			[
+				"LineRe",
+				"LineRenderer.SetPosition	*(index, position)"
+			],
+			[
+				"color",
+				"color	[class]"
+			],
+			[
+				"col",
+				"color	*(r, g, b, a)"
+			],
+			[
+				"GetCom",
+				"GameObject.GetComponent	*(type)"
+			],
+			[
+				"GetC",
+				"GetComponent	GameObject.*<T>()"
+			],
+			[
+				"Vect",
+				"Vector3	*(x, y, z)"
+			],
+			[
+				"GameObje",
+				"GameObject	*(name, params components)"
+			],
+			[
+				"trans",
+				"transform	[class]"
+			],
+			[
+				"tra",
+				"transform	[class]"
+			],
+			[
+				"Get",
+				"GetFloat	PlayerPrefs.*(key, defaultValue)"
+			],
+			[
+				"SetColors",
+				"SetColors	start, end"
+			],
+			[
+				"sq",
+				"sqrMagnitude"
+			],
+			[
+				"dynami",
+				"dynamicVertexIndex"
+			],
+			[
+				"Draw",
+				"DrawQuads"
+			],
+			[
+				"Hide",
+				"HideAndDontSave"
+			],
+			[
+				"SleepM",
+				"SleepManager"
+			],
+			[
+				"Tra",
+				"StartCoroutine_Auto(IEnumerator)	Coroutine"
+			],
+			[
+				"th",
+				"throw"
+			],
+			[
+				"Network",
+				"NetworkView"
+			],
+			[
+				"Net",
+				"NetworkViewID"
+			],
+			[
+				"FindObject",
+				"FindObjectsOfType	type"
+			],
+			[
+				"GetCompo",
+				"GetComponent	type"
+			],
+			[
+				"OnTr",
+				"OnTriggerEnter	other"
+			],
+			[
+				"Netw",
+				"NetworkManager"
+			],
+			[
+				"NetWor",
+				"NetworkView"
+			],
+			[
+				"A",
+				"Approximately	a, b"
+			],
+			[
+				"OnCOlli",
+				"OnCollisionEnter	collision"
+			],
+			[
+				"veloi",
+				"velocityX"
+			],
+			[
+				"velo",
+				"velocityY"
+			],
+			[
+				"Curve",
+				"Curve_UIPanel"
+			],
+			[
+				"Manag",
+				"Management_UIPanel"
+			],
+			[
+				"tween",
+				"TweenPosition"
+			],
+			[
+				"TaskBut",
+				"TaskButtonsContainer"
+			],
+			[
+				"Scree",
+				"ScreenToWorldPoint	position"
+			],
+			[
+				"GetCOmpo",
+				"GetComponentInChildren	type"
+			],
+			[
+				"GetComponent",
+				"GetComponentInChildren	type"
+			],
+			[
+				"Instanta",
+				"InstantiateChild"
+			],
+			[
+				"MonoBe",
+				"MonoBehaviour"
+			],
+			[
+				"power",
+				"powerDifferenceOverThreshold"
+			],
+			[
+				"plasma",
+				"plasmaDifferenceOverThreshold"
+			],
+			[
+				"sleepManager",
+				"sleepManagerUIRoot_Transform"
+			],
+			[
+				"SleepMana",
+				"SleepManagerUIRoot_Transform"
+			],
+			[
+				"SleepManager",
+				"SleepManagerUIRoot"
+			],
+			[
+				"sleepMana",
+				"sleepManagerUIRoot_Transform"
+			],
+			[
+				"Scroller",
+				"Scroller_Transform"
+			],
+			[
+				"scroller",
+				"Scroller_Transform"
+			],
+			[
+				"scroll",
+				"scroller_Transform"
+			],
+			[
+				"child",
+				"child_UIWidget"
+			],
+			[
+				"delta",
+				"deltaScroll"
+			],
+			[
+				"ve",
+				"velocityX"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"data",
+				"data-options"
+			],
+			[
+				"TimelineKeyframe",
+				"TimelineKeyframeTarget"
+			],
+			[
+				"Timeline",
+				"TimelineKeyframeTarget"
+			],
+			[
+				"cl",
+				"callback"
+			],
+			[
+				"slee",
+				"sleepManagerScale"
+			],
+			[
+				"bounds",
+				"boundsExtentsX"
+			],
+			[
+				"other",
+				"other_Bounds"
+			],
+			[
+				"Task",
+				"TaskButton"
+			],
+			[
+				"Finf",
+				"FindObjectsOfType	type"
+			],
+			[
+				"m_",
+				"m_GameObject"
+			],
+			[
+				"Render",
+				"RenderTexture"
+			],
+			[
+				"Rende",
+				"RenderTexture"
+			],
+			[
+				"us",
+				"IsNullOrEmpty(String)	Boolean"
+			],
+			[
+				"frame",
+				"frame_height"
+			],
+			[
+				"neigh",
+				"neighbours"
+			],
+			[
+				"particles",
+				"particles"
+			],
+			[
+				"parti",
+				"particles"
+			],
+			[
+				"ne",
+				"neightboursRadius"
+			],
+			[
+				"l",
+				"lparticles"
+			],
+			[
+				"position",
+				"position2d"
+			],
+			[
+				"rela",
+				"relativeScreenMin"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/dom2js-template.js",
+			"settings":
+			{
+				"buffer_size": 1444,
+				"line_ending": "Windows",
+				"name": "! define(function () {"
+			}
+		},
+		{
+			"file": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/template.js",
+			"settings":
+			{
+				"buffer_size": 8340,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/dat.dom2js-template.html",
+			"settings":
+			{
+				"buffer_size": 2037,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Unity3D Build System/Unity.sublime-build",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"sh",
+				"Set Syntax: HTML"
+			],
+			[
+				"pl",
+				"Package Control: List Packages"
+			],
+			[
+				"pi",
+				"Package Control: Install Package"
+			],
+			[
+				"su",
+				"Set Syntax: Unity C#"
+			],
+			[
+				"pr",
+				"Package Control: Remove Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"align",
+				"Preferences: Alignment File Settings – Default"
+			],
+			[
+				"pe",
+				"Package Control: Enable Package"
+			],
+			[
+				"pd",
+				"Package Control: Disable Package"
+			],
+			[
+				"edit",
+				"Project: Edit"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"unity",
+				"Unity Reference: Open Function Reference"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"sj",
+				"Set Syntax: JSON"
+			],
+			[
+				"sc",
+				"Set Syntax: C#"
+			],
+			[
+				"tr",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"spaces",
+				"Trailing Spaces: Toggle Trailing Spaces Highlighting"
+			],
+			[
+				"pref",
+				"Preferences: Browse Packages"
+			],
+			[
+				"",
+				"BracketHighlighter: Select Next Attribute (left)"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"color",
+				"Color picker"
+			],
+			[
+				"sh	",
+				"Set Syntax: HTML"
+			],
+			[
+				"m",
+				"Minify Javascript to file"
+			],
+			[
+				"mi",
+				"Minify Javascript"
+			],
+			[
+				"mini",
+				"Minify Javascript"
+			],
+			[
+				"form",
+				"Format: Javascript"
+			],
+			[
+				"js",
+				"Format: Javascript"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"ppa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"PE",
+				"Package Control: Enable Package"
+			],
+			[
+				"PL",
+				"Package Control: List Packages"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"en",
+				"Package Control: Enable Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"diable",
+				"Package Control: Disable Package"
+			],
+			[
+				"disble",
+				"Package Control: Disable Package"
+			],
+			[
+				"disbale",
+				"Snippet: EditorGUI.*(position, label, value, leftValue, rightValue)"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"instale",
+				"Package Control: Install Package"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
+			],
+			[
+				"package en",
+				"Package Control: Enable Package"
+			],
+			[
+				"package dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"package ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package add",
+				"Package Control: Add Repository"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"package e",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package",
+				"Package Control: Disable Package"
+			],
+			[
+				"Packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"Pack",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 443.0
+	},
+	"console":
+	{
+		"height": 213.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/bma/scripts/b2/Body.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/bma/index.html",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/bma/scripts/main.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/bma/assets/css/main.css",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/bma/scripts/config.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Physic/scripts/computeCosineWave.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Physic/scripts/main.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Physic/scripts/behaviours/asCharacter.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Physic/scripts/config.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/dat.curves.html",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/cosine-wave.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/dat.fsm.html",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Fps/Assets/NewBehaviourScript.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Mes documents/ovh.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/Collection.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/javascript-state-machine/tp/tp.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/javascript-state-machine/tp/NpcStateMachine.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/javascript-state-machine/state-machine.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/LookAtCamera.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/TopCamera.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/FixedCamera.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/KeyboardControls.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/RailsCamera.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/RotateColor.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GDP2B/Sobierajewicz/Assets/CustomCamera.cs",
+		"/C/Users/Cyril Sobierajewicz/Dropbox/Escape Me Let me Dream Sweety Like a Boss/food.txt",
+		"/C/Users/Cyril Sobierajewicz/Dropbox/Escape Me Let me Dream Sweety Like a Boss/UnityExtension.cs",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/C/wamp/www/ghostrunner/php/ghost2client.php",
+		"/C/wamp/www/ghostrunner/php/ghost2server.php",
+		"/C/wamp/www/ghostrunner/index.html",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/color.blend.js",
+		"/C/wamp/www/ghostrunner/js/config.js",
+		"/C/wamp/www/ghostrunner/js/game.js",
+		"/C/wamp/www/ghostrunner/ghostrunner.sublime-project",
+		"/C/wamp/www/ghostrunner/js/Map.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/KeyboardBehaviour.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/MonoSingleton.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/ActiveOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/DestroyOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/DeactiveOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/TriggerOnMessage.cs",
+		"/C/Users/Cyril Sobierajewicz/AppData/Local/FlashDevelop/Settings/Themes/Ozdi.fdi",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Timeline.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/TimelineKeyframe.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/TimelineTarget.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/TimelineKeyframeGizmo.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/ShuttlePath.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/ShuttleWaypoint.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/NGUI/Scripts/Interaction/UIForwardEvents.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/Nap.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/FreezeRotations.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/Scrollbar.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepManager.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepThreshold.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/TaskButton.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Utils/TriggerOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Utils/MonoSingleton.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Utils/DestroyOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Utils/DeactiveOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Utils/ActiveOnMessage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/MonoBehaviour2.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/IDestroyListener.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/pusher.color.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/color.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/tests/lazy/lazy.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/airbus.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/dat.color.correction.html",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/all.txt",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Alignment/Base File.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Terminal/Base File.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/trailing_spaces.sublime-settings",
+		"/C/wamp/www/ghostrunner/css/main.css",
+		"/C/wamp/www/ghostrunner/js/ajax.js",
+		"/C/Users/Cyril Sobierajewicz/Dropbox/GhostRunner/GHOST_RUNNER.NODEJS/ghosts.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GhostRunner/ghosts.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GhostRunner.ajax/js/game.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GhostRunner.ajax/php/ghost2client.php",
+		"/C/Users/Cyril Sobierajewicz/Dropbox/GhostRunner/GHOST_RUNNER.NODEJS/public/js/game.js",
+		"/C/Users/Cyril Sobierajewicz/Dropbox/GhostRunner/GHOST_RUNNER.NODEJS/server.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GhostRunner.ajax/js/ajax.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GhostRunner.ajax/index.html",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/GhostRunner.ajax/js/Network.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/interface.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/LineShader.shader",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/Image Effects/_Sources/Shaders/_BloomAndFlares/BrightPassFilter.shader",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/WaypointsPath.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/wpsdnnrltmps.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/math.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/components/red_component.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/components/blue_component.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/components/green_component.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/components/orange_component.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/components/purple_component.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/components/yellow_component.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/PowerMamies/js/main.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/GUI/WatchController.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/GUI/SleepSceneController.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepStage.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepProfiles.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepProfile.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepCycle.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/LevelDesign/SleepCurves.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/SleepManager/SleepCoef.cs",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/TransformComponent.js",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Unity.sublime-workspace",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Unity.sublime-project",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/CompleteSharp.sublime-settings",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Function.prototype.defaults.js",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Unity3D Script Reference Search/Unity3DScriptReference.py",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/todo.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/TODO.txt",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/airbus.sublime-workspace",
+		"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/airbus.sublime-project",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Default (Windows).sublime-mousemap",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Expand Selection to Quotes/Default (Windows).sublime-keymap",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Inc-Dec-Value/inc_dec_value.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Edit History/Edit History.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/open_browser.py",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.last-run",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Cyril Sobierajewicz/AppData/Roaming/Sublime Text 2/Packages/TrailingSpaces/trailing_spaces.sublime-settings"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"content",
+			"template",
+			"body",
+			"fn",
+			"vertices",
+			"b2DebugDraw",
+			"centerY",
+			"deltaX",
+			"config",
+			"count",
+			"distance",
+			"createGround",
+			"x",
+			"width",
+			"x",
+			"ENTITIES",
+			"range",
+			"range()",
+			"range",
+			"entitie",
+			"velocity",
+			"entite",
+			"canvas",
+			"width",
+			"x",
+			"cube",
+			"cubes",
+			"m_",
+			"cachedTransform",
+			"rgb2hsl",
+			"hsl",
+			"rgb2hsl",
+			"g",
+			"gamma",
+			"linearToGamma",
+			"gammaToLinear",
+			"gamma",
+			"linearToGamma",
+			"gammaToLinear",
+			"w3",
+			"color",
+			"hex",
+			"amount?",
+			"rgb2hsl",
+			".rgba",
+			".rgb",
+			".hsl",
+			"c",
+			"255",
+			"luminance",
+			"s",
+			"color.keywords",
+			"lerp",
+			"#IF ALPHA BLENDING",
+			"IF ALPHA BLENDING",
+			"color",
+			"			,",
+			"ghost",
+			"lecterMap",
+			"lecteurMap",
+			"clampDegrees",
+			"parse",
+			"toHslString",
+			"alpha",
+			"\"",
+			"number",
+			"dynamicVertexIndex",
+			"keyframe",
+			"keyframes.Length",
+			"TimelineKeyframe",
+			"isOnPath",
+			"lock",
+			"x",
+			"lock",
+			"();\n",
+			"vertices",
+			"m_Material",
+			"color.",
+			"parse",
+			"css",
+			"css.",
+			" * alpha",
+			"+",
+			"%",
+			"+",
+			"{1,3}",
+			"m",
+			"name",
+			"NAMES_TO_HEX",
+			") {",
+			"lighten",
+			"tone",
+			"lighten",
+			"rotate",
+			"grayscale",
+			"saturation",
+			"blue",
+			"a, b, c",
+			"a, b, w",
+			"};\n",
+			" / 255",
+			"_ra",
+			"src_",
+			"src",
+			"src_",
+			"dest_ra",
+			"src_ra",
+			"dest_ra",
+			" | 0",
+			"src = Math.max(src, 0) | 0;\n		dest = Math.max(dest, 0) | 0;",
+			"if (hex < 0) hex = 0;",
+			"hex = Math.max(hex, 0) | 0;",
+			"clamp",
+			"hex = Math.max(hex, 0) | 0;",
+			"hex = Math.max(hex, 0);",
+			"blend",
+			"return (r << 16) * a + (g << 8) * a + b * a;",
+			"ctx",
+			"return (r << 16 & 0xff) * a + (g << 8 & 0xff) * a + (b & 0xff) * a;",
+			"ctx",
+			"src",
+			">> 16",
+			"src = clamp(src, 0, 0xffffff) | 0;\n		dest = clamp(dest, 0, 0xffffff) | 0;",
+			"to",
+			"from",
+			"src = clamp(src, 0, 0xffffff) | 0;\n		dest = clamp(dest, 0, 0xffffff) | 0;",
+			"blend",
+			"a"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"%)",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/dom2js-template.js",
+					"settings":
+					{
+						"buffer_size": 1444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								100,
+								100
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"auto_name": "! define(function () {",
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"laxcomma": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "alpha",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": true,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/template.js",
+					"settings":
+					{
+						"buffer_size": 8340,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"laxcomma": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "alpha",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": true,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/dat.dom2js-template.html",
+					"settings":
+					{
+						"buffer_size": 2037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								838,
+								838
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"laxcomma": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "alpha",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": true,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 525.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 203.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"color",
+				"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Bureau/Canvas2D/Template/developpement/js/color.js"
+			],
+			[
+				"bright",
+				"Scripts/Image Effects/_Sources/Shaders/_BloomAndFlares/BrightPassFilter.shader"
+			],
+			[
+				"path",
+				"Scripts/ShuttlePath.cs"
+			],
+			[
+				"waypo",
+				"Scripts/WaypointsPath.cs"
+			],
+			[
+				"timeline",
+				"Scripts/TimelineKeyframeGizmo.cs"
+			],
+			[
+				"watch",
+				"Scripts/GUI/WatchController.cs"
+			],
+			[
+				"sleepco",
+				"Scripts/SleepManager/SleepCoef.cs"
+			],
+			[
+				"sleepscene",
+				"Scripts/GUI/SleepSceneController.cs"
+			],
+			[
+				"nap",
+				"Scripts/SleepManager/Nap.cs"
+			],
+			[
+				"sleep",
+				"Scripts/SleepManager/SleepStage.cs"
+			],
+			[
+				"sleeppro",
+				"Assets/Scripts/SleepManager/SleepProfiles.cs"
+			],
+			[
+				"sleepcoef",
+				"Assets/Scripts/SleepManager/SleepCoef.cs"
+			],
+			[
+				"sleepmana",
+				"Assets/Scripts/SleepManager/SleepManager.cs"
+			],
+			[
+				"",
+				"/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/Unity/Airbus/Unity/Assets/Scripts/spquestionnary.cs"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 202.0,
+	"status_bar_visible": true
+}

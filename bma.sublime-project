@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "/D/~ DONNEES ~/Cyril Sobierajewicz/Bureau/bma",
+			"folder_exclude_patterns": [
+				"assets/images",
+				"assets/audio",
+				"assets/fonts"
+			]
+		}
+	]
+}
