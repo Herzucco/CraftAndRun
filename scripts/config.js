@@ -2,7 +2,8 @@ require.config({
 		urlArgs: "bust=" +  Date.now()
 
 	, paths: {
-			"box2d": "../libs/box2d.min"
+			"box2d": "../libs/box2d.min",
+			"puppets" : "../libs/puppets"
 		}
 
 	, shim: {
