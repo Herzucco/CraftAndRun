@@ -9,7 +9,12 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
-		this.ship = new Ship(this.world);
+		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 0]);
+		this.ship.addModule("middle-top", "propulsor");
+		this.ship.addModule("middle-left", "propulsor");
+		this.ship.addModule("upper-top", "propulsor");
+		this.ship.addModule("lower-right", "propulsor");
+		console.log(this.ship)
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
