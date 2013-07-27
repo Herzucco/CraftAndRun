@@ -85,7 +85,8 @@ define( ["game/InputsManager"],function(InputsManager)
 				console.log(JSON.stringify(ship_JSON));
 				console.log(JSON.parse(JSON.stringify(ship_JSON)));
 				localStorage.setItem("buildNRun_ship", JSON.stringify(ship_JSON))
-				window.setTimeout(function(){Game.state = "game";},1000)
+				Game.initLevel();
+				Game.state = "game";
 			}
 
 

@@ -29,13 +29,17 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.state = "index";
 		// this.index_menu = new Index();
 		this.editor = new Editor();
-		this.level = new Level( this.canvas, this.context );
+		
 
 		Game.instance = this;
 
 		this.loop( this.gameLoop );
 	}
 	
+	Game.prototype.initLevel = function(){
+		this.level = new Level( this.canvas, this.context );
+	}
+
 	Game.prototype.update = function( deltaTime )
 	{
 		switch(this.state){
