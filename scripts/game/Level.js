@@ -1,6 +1,5 @@
 define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 {
-	console.log(Ship);
 	var SCALE = 30;
 	var Level = function( canvas, context )
 	{

@@ -1,6 +1,5 @@
 define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor)
 {
-	console.log(Editor);
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
     	|| window.mozRequestAnimationFrame
