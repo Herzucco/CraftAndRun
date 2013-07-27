@@ -1,5 +1,6 @@
-define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stats" ], function( Box2D, Level, InputsManager, Camera )
+define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor)
 {
+	console.log(Editor);
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
     	|| window.mozRequestAnimationFrame
@@ -13,7 +14,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stat
 	stats.setMode(0);
 	
 	//align right 
-	stats.domElement.className = "fps";
+	stats.domElement.className = "fps";	
 	
 	document.body.appendChild( stats.domElement );
 	var Game = function( canvasID )
@@ -21,10 +22,13 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stat
 		new Box2D();
 		new InputsManager();
 		Camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
-		
+
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
+		this.state = "index";
+		// this.index_menu = new Index();
+		this.editor = new Editor();
 		this.level = new Level( this.canvas, this.context );
 
 		Game.instance = this;
@@ -34,12 +38,43 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stat
 	
 	Game.prototype.update = function( deltaTime )
 	{
-		this.level.update( deltaTime );
+		switch(this.state){
+			case "index":
+				this.state = "editor";
+			break;
+			case "selection":
+			break;
+			case "score":
+			break;
+			case "editor":
+				this.editor.update( deltaTime);
+			break;
+			case "game":
+				this.level.update( deltaTime );
+			break;
+			default:
+			break;
+		}
 	}
 	
 	Game.prototype.render = function( context )
 	{
-		this.level.render( context );
+		switch(this.state){
+			case "index":
+			break;
+			case "selection":
+			break;
+			case "score":
+			break;
+			case "editor":
+				this.editor.render( context, this.canvas);
+			break;
+			case "game":
+				this.level.render( context );
+			break;
+			default:
+			break;
+		}
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 
