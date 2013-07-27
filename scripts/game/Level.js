@@ -9,10 +9,12 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
-		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 0]);
-		this.ship.addModule("middle-top", "propulsor");
-		this.ship.addModule("middle-left", "propulsor");
-		this.ship.addModule("upper-top", "propulsor");
+		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 10]);
+		this.ship.addModule("upper-top", "collider");
+		this.ship.addModule("middle-left", "collider");
+		this.ship.addModule("middle-top", "collider");
+		this.ship.addModule("middle-right", "collider");
+		this.ship.addModule("lower-left", "propulsor");
 		this.ship.addModule("lower-right", "propulsor");
 		console.log(this.ship)
 
@@ -76,6 +78,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 	Level.prototype.update = function( deltaTime )
 	{
 		// this.checkWalls();
+		this.ship.update(deltaTime)
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 	}

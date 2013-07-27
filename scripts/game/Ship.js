@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Propulsor" ], function( Box2D, Propulsor )
+define( [ "game/Box2D", "game/Collider", "game/Propulsor" ], function( Box2D, Collider, Propulsor )
 {
 	var Ship = function(world, position) 
 	{
@@ -26,7 +26,7 @@ define( [ "game/Box2D", "game/Propulsor" ], function( Box2D, Propulsor )
 		switch(moduleType)
 		{
 			case "collider" :
-				this.modules.push(new Propulsor("square", [0.5,0.5], [position.x+this.position[0], position.y+this.position[1]], this.world));
+				this.modules.push(new Collider("square", [0.5,0.5], [position.x+this.position[0], position.y+this.position[1]], this.world));
 			break;
 			case "propulsor" :
 				this.modules.push(new Propulsor("square", [0.5,0.5], [position.x+this.position[0], position.y+this.position[1]], this.world));
@@ -40,6 +40,11 @@ define( [ "game/Box2D", "game/Propulsor" ], function( Box2D, Propulsor )
 				jointDef.enableLimit = true;			
 				this.joins.push(this.world.CreateJoint(jointDef));
 		}
+	}
+	Ship.prototype.update = function(deltaTime)
+	{
+		for(var i = 0; i < this.modules.length; i++)
+			this.modules[i].update(deltaTime);
 	}
 	Ship.prototype.constructor = Ship;
 

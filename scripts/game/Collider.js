@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Level"], function( Box2D, level)
+define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, level, InputsManager)
 {
 	var SCALE = 30;
 	var Collider = function(shape, size, position, world)
@@ -23,6 +23,10 @@ define( [ "game/Box2D", "game/Level"], function( Box2D, level)
 		this.body.CreateFixture( this.fixdef );
 		this.body.tag = "ship";
 	}
+	Collider.prototype.update = function(deltaTime)
+	{
+
+	};
 	Collider.prototype.constructor = Collider;
 
 	return Collider;
