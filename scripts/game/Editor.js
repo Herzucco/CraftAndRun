@@ -81,9 +81,6 @@ define( ["game/InputsManager"],function(InputsManager)
 				for(var i =0, j = this.tiles.length; i < j; i++){
 					ship_JSON[i] = this.tiles[i];
 				}
-				console.log(ship_JSON);
-				console.log(JSON.stringify(ship_JSON));
-				console.log(JSON.parse(JSON.stringify(ship_JSON)));
 				localStorage.setItem("buildNRun_ship", JSON.stringify(ship_JSON))
 				Game.initLevel();
 				Game.state = "game";
@@ -96,6 +93,8 @@ define( ["game/InputsManager"],function(InputsManager)
 	
 	Editor.prototype.render = function( context, canvas)
 	{
+		console.log('toto');
+		context.beginPath();
 		context.lineWidth = 2;
 		context.fillStyle = "#FFFFFF";
 		context.fillRect(0,0,canvas.width, canvas.height);
@@ -124,7 +123,9 @@ define( ["game/InputsManager"],function(InputsManager)
 		} else if(this.allTiles[this.cursor.type] === "collider"){
 			context.fillStyle = "#99FF66";
 			context.fillRect(380, 10, this.tileWidth, this.tileHeight);
-		}		
+		}	
+		context.lineWidth = 1;
+		context.closePath();	
 	}
 
 
