@@ -19,6 +19,8 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			"lower-right" : {x : 1, y : 1},
 		}
 		
+		this.instance = this;
+		
 		//add contact listener
 		var listener = new Box2D.ContactListener;
 		listener.BeginContact = this.shipCollision;
@@ -42,8 +44,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		{
 			var jointDef = new Box2D.RevoluteJointDef();
 				jointDef.Initialize(this.firstModule.body, this.modulesSlots[slot].body, this.modulesSlots[slot].body.GetWorldCenter());
-				jointDef.enableLimit = true;			
-				this.joins.push(this.world.CreateJoint(jointDef));
+				jointDef.enableLimit = true;
+				
+				var joint = this.world.CreateJoint(jointDef);
+				this.modulesSlots[slot].joint = joint;
+				this.joins.push( joint );
 		}
 		else
 			this.firstModule = this.modulesSlots[slot];
@@ -62,10 +67,15 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		
 		if ( bodies[0].tag === bodies[1].tag )
 			return;
-			
+		
+		var module = bodies[shipIndex].module;
 		//module hit print type
-		if ( bodies[shipIndex].module instanceof Propulsor )
-			console.log( "Propulsor hit" );
+		if ( module instanceof Collider )
+		{
+		
+			module.hp = Math.max( 0, module.hp - 2 );	
+			console.log( module.hp );
+		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
@@ -74,7 +84,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		{
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "left" || i.split("-")[1] == "top") && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined )
+				if(i.split("-")[1] == "left" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined )
 				{
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
@@ -89,7 +99,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		{
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "right" || i.split("-")[1] == "top")  && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
+				if(i.split("-")[1] == "right" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
 				{
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
@@ -100,11 +110,26 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-
+		if(InputsManager.instance["86"] == true)
+		{
+			for(var i in this.modulesSlots)
+			{
+				if(i.split("-")[1] == "top" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
+				{
+					var module = this.modulesSlots[i];
+					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+					direction.x *= -1;
+					var force = Vectors.mult(direction, module.force);
+					
+					module.body.ApplyForce(force, module.body.GetPosition());
+				}
+			}
+		}
 		for(var i in this.modulesSlots)
-			if(this.modulesSlots[i].update !== undefined && this.modulesSlots[i].update !== null)
-				this.modulesSlots[i].update(deltaTime);
+			if( typeof( this.modulesSlots[i].update ) !== "undefined" )
+				this.modulesSlots[i].update(deltaTime, this.world );
 	}
+	
 	Ship.prototype.constructor = Ship;
 
 	return Ship;
