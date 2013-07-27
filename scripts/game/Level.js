@@ -27,7 +27,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 
 			, ax = curve[0] / SCALE
 			, ay = curve[1] / SCALE;
-
+	
+		var body;
 		for (var i = 2; i < curve.length; i += 2) 
 		{
 			var bx = curve[i] / SCALE
@@ -47,8 +48,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 					, new Box2D.Vec2(ax - x, ay + height)
 					], 4);
 
-			this.world.CreateBody( this.bodydef ).CreateFixture( this.fixdef );
-
+			body = this.world.CreateBody( this.bodydef );
+			body.CreateFixture( this.fixdef );
+			
 			ax = bx;
 			ay = by;
 			this.walls.push(new Wall(this, 20, "left"));
@@ -57,7 +59,12 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
 
-		
+		this.bodydef.position.Set(canvas.width / 3 / SCALE, 0);
+
+		this.fixdef.shape = new Box2D.CircleShape(0.1);
+
+		body = this.world.CreateBody( this.bodydef );
+		body.CreateFixture( this.fixdef );
 	}
 	
 	Level.prototype.update = function( deltaTime )
@@ -67,9 +74,49 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 		this.world.ClearForces();
 	}
 	
-	Level.prototype.render = function( context )
+	Level.prototype.render = function( context, camPos )
 	{
-		this.world.DrawDebugData();
+	/*
+		for ( var body = this.world.GetBodyList(); body !== null; body = body.GetNext() )
+		{
+			var pos = body.GetPosition();
+			console.log( pos );
+			context.save();
+			
+			context.translate( pos.x - camPos.x, pos.y - camPos.y );
+			context.rotate( body.GetAngle() );
+			
+			context.fillStyle   = "#00ff00";
+			context.strokeStyle = "#000000"; 
+			
+			var shape = body.GetFixtureList().GetShape();
+			if ( shape instanceof Box2D.PolygonShape )
+			{
+				context.fillRect( -body.sizes.w/2, -body.sizes.h/2, body.sizes.w, body.sizes.h );
+				context.strokeRect( -body.sizes.w/2, -body.sizes.h/2, body.sizes.w, body.sizes.h );
+			}
+			
+			context.fillStyle = "#ff0000";
+			if ( shape instanceof Box2D.CircleShape )
+			{
+				context.beginPath();
+				
+				context.arc( 0, 0, body.sizes.r, 0, 2 * Math.PI );
+				context.fill();
+				
+				context.stroke();
+			}
+			
+			context.restore();
+		}
+		*/
+		
+		context.save();
+		
+		context.translate( -camPos.x, -camPos.y );
+			this.world.DrawDebugData();
+		
+		context.restore();
 	}
 	
 	Level.prototype.checkWalls = function() {

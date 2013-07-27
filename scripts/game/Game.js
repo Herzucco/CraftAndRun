@@ -20,8 +20,9 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 	{
 		new Box2D();
 		new InputsManager();
-		Camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
-
+		
+		this.camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
+		
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
@@ -97,7 +98,6 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		Game.instance.update( Game.instance.deltaTime );
 		Game.instance.render( Game.instance.context );
 	
-		Camera.update(Game.instance.deltaTime, Game.instance.level.world);
 		Game.instance.deltaTime = Date.now();
 		
 		stats.end();

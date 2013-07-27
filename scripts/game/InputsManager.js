@@ -12,8 +12,10 @@ define( [  ], function(  )
 			var code = e.keyCode;
 			InputsManager.instance[code] = false;
 		}
+		
 		window.addEventListener("keydown", catchInput);
 		window.addEventListener("keyup", removeInput);
+		
 		InputsManager.instance = this;
 	};
 
