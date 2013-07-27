@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stats" ], function( Box2D, Level, InputsManager, Camera )
+define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor)
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -13,7 +13,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stat
 	stats.setMode(0);
 	
 	//align right 
-	stats.domElement.className = "fps";
+	stats.domElement.className = "fps";	
 	
 	document.body.appendChild( stats.domElement );
 	var Game = function( canvasID )
@@ -26,24 +26,60 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stat
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.level = new Level( this.canvas, this.context );
+		this.state = "index";
+		// this.index_menu = new Index();
+		this.editor = new Editor();
+		
 
 		Game.instance = this;
 
 		this.loop( this.gameLoop );
 	}
 	
+	Game.prototype.initLevel = function(){
+		this.level = new Level( this.canvas, this.context );
+	}
+
 	Game.prototype.update = function( deltaTime )
 	{
-		this.camera.update( deltaTime, this.level.world );
-		this.level.update( deltaTime );
+		switch(this.state){
+			case "index":
+				this.state = "editor";
+			break;
+			case "selection":
+			break;
+			case "score":
+			break;
+			case "editor":
+				this.editor.update( deltaTime);
+			break;
+			case "game":
+				this.level.update( deltaTime );
+			break;
+			default:
+			break;
+		}
 	}
 	
 	Game.prototype.render = function( context )
 	{
-		context.fillRect( 0, 0, this.canvas.width, this.canvas.height );
-		
-		this.level.render( context, this.camera.position );
+		switch(this.state){
+			case "index":
+			break;
+			case "selection":
+			break;
+			case "score":
+			break;
+			case "editor":
+				this.editor.render( context, this.canvas);
+			break;
+			case "game":
+				context.fillRect( 0, 0, this.canvas.width, this.canvas.height );
+				this.level.render( context, this.camera.position );
+			break;
+			default:
+			break;
+		}
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 
