@@ -16,7 +16,6 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/C
 	stats.domElement.className = "fps";
 	
 	document.body.appendChild( stats.domElement );
-	
 	var Game = function( canvasID )
 	{
 		new Box2D();
@@ -27,6 +26,7 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/C
 		this.context = this.canvas.getContext( "2d" );
 		
 		this.level = new Level( this.canvas, this.context );
+		this.spaceShip = new Ship(this.level);
 		
 		Game.instance = this;
 
