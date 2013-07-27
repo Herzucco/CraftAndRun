@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor)
+define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "game/PressStart", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor, PressStart)
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -26,9 +26,9 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.state = "index";
-		// this.index_menu = new Index();
-		this.editor = new Editor();
+		this.state = "pressStart";
+		this.pressStart = new PressStart();
+		this.level = new Level( this.canvas, this.context );
 		
 
 		Game.instance = this;
@@ -36,23 +36,35 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.loop( this.gameLoop );
 	}
 	
+	Game.prototype.closeEditor = function(){
+		delete this.editor;
+	}
 	Game.prototype.initLevel = function(){
 		this.level = new Level( this.canvas, this.context );
-		delete this.editor;
+		this.state = "game";
+	}
+	Game.prototype.initEditor = function(){
+		this.editor = new Editor();
+		this.state = "editor";
+	}
+	Game.prototype.closePressStart = function(){
+		delete this.pressStart;
 	}
 
 	Game.prototype.update = function( deltaTime )
 	{
 		switch(this.state){
 			case "index":
-				this.state = "editor";
+				this.state = "pressStart";
 			break;
-			case "selection":
+			case "pressStart":
+				this.pressStart.update( deltaTime );
 			break;
 			case "score":
+				this.score.update( deltaTime );
 			break;
 			case "editor":
-				this.editor.update( deltaTime);
+				this.editor.update( deltaTime );
 			break;
 			case "game":
 				this.level.update( deltaTime );
@@ -67,9 +79,11 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		switch(this.state){
 			case "index":
 			break;
-			case "selection":
+			case "pressStart":
+				this.pressStart.render( context, this.canvas );
 			break;
 			case "score":
+				this.score.render( context );
 			break;
 			case "editor":
 				this.editor.render( context, this.canvas);

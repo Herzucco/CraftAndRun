@@ -83,7 +83,7 @@ define( ["game/InputsManager"],function(InputsManager)
 				}
 				localStorage.setItem("buildNRun_ship", JSON.stringify(ship_JSON))
 				Game.initLevel();
-				Game.state = "game";
+				Game.closeEditor();
 			}
 
 
