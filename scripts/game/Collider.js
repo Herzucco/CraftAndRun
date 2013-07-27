@@ -33,7 +33,10 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 	{
 		//destroy Joint when HP fails
 		if ( this.hp === 0 && typeof( this.joint ) !== "undefined" )
+		{
 			world.DestroyJoint( this.joint );
+			this.joint = undefined; //force undefined
+		}
 	};
 	
 	Collider.prototype.constructor = Collider;

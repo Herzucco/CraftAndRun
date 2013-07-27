@@ -47,7 +47,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				jointDef.enableLimit = true;
 				
 				var joint = this.world.CreateJoint(jointDef);
-				this.modules[ length - 1 ].joint = joint;
+				this.modulesSlots[slot].joint = joint;
 				this.joins.push( joint );
 		}
 		else
@@ -67,12 +67,13 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		
 		if ( bodies[0].tag === bodies[1].tag )
 			return;
-			
+		
 		var module = bodies[shipIndex].module;
 		//module hit print type
 		if ( module instanceof Collider )
 		{
-			module.hp = Math.max( 0, module.hp - 1 );	
+		
+			module.hp = Math.max( 0, module.hp - 10 );	
 			console.log( module.hp );
 		}
 	}
@@ -109,8 +110,9 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-		for(var i = 0; i < this.modules.length; i++)
-			this.modules[i].update(deltaTime, this.world );
+		for( var i in this.modulesSlots )
+			if ( typeof( this.modulesSlots[i].update ) !== "undefined" )
+				this.modulesSlots[i].update(deltaTime, this.world );
 	}
 	
 	Ship.prototype.constructor = Ship;
