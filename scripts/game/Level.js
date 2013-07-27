@@ -4,11 +4,19 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 	var Level = function( canvas, context )
 	{
 		this.walls = [];
+		
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
-		this.ship = new Ship(this.world);
+		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 10]);
+		this.ship.addModule("upper-top", "collider");
+		this.ship.addModule("middle-left", "collider");
+		this.ship.addModule("middle-top", "collider");
+		this.ship.addModule("middle-right", "collider");
+		this.ship.addModule("lower-left", "propulsor");
+		this.ship.addModule("lower-right", "propulsor");
+		console.log(this.ship)
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
@@ -57,6 +65,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 			this.walls.push(new Wall(this, 20, "right"));
 		}
 
+		/*
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
 
 		this.bodydef.position.Set(canvas.width / 3 / SCALE, 0);
@@ -65,11 +74,13 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 
 		body = this.world.CreateBody( this.bodydef );
 		body.CreateFixture( this.fixdef );
+		*/
 	}
 	
 	Level.prototype.update = function( deltaTime )
 	{
 		// this.checkWalls();
+		this.ship.update(deltaTime)
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 	}
