@@ -4,12 +4,12 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 	var Level = function( canvas, context )
 	{
 		this.walls = [];
-		
+		this.winds = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
-		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 12.5]);
+		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 14]);
 		var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
 		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
 		for(var i =0, j = ship_save.length; i<j; i++){
@@ -18,7 +18,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 			}
 		}
 
-		// this.wind = new Wind([5, 2],[canvas.width / 3 / SCALE, 5], this.world, {min : 10, max : 30}, 5, "left");
+		this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5, "left"));
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
@@ -36,7 +36,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 		this.walls.push(new Wall(this, 20, "right"));
 
 		this.bodydef.type = Box2D.Body.b2_staticBody;
-		this.bodydef.position.Set(16, 15);
+		this.bodydef.position.Set(16, 18);
 		this.fixdef.shape = new Box2D.PolygonShape();
 		this.fixdef.shape.SetAsBox(14,1);
 		this.world.CreateBody(this.bodydef).CreateFixture(this.fixdef);
@@ -55,7 +55,10 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 	Level.prototype.update = function( deltaTime )
 	{
 		// this.checkWalls();
-		this.ship.update(deltaTime)
+		this.ship.update(deltaTime);
+		for(var i = 0; i < this.winds.length; i++)
+			this.winds[i].update(deltaTime);
+
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 	}

@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collider", "game/Propulsor" ], function( Box2D, InputsManager, Vectors, Collider, Propulsor )
+define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind", "game/Collider", "game/Propulsor" ], function( Box2D, InputsManager, Vectors, Wind, Collider, Propulsor )
 {
 	var Ship = function(world, position) 
 	{
@@ -81,7 +81,26 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 	
 	Ship.prototype.shipObstacleCollision = function( contact, oldManifold )
 	{
-		contact.SetEnabled( false );
+		var bodies = [ contact.GetFixtureA().GetBody(), contact.GetFixtureB().GetBody() ];
+		var shipIndex = ( bodies[0].tag === "ship" ) ? 0 : -1;
+		shipIndex = ( bodies[1].tag === "ship" ) ? 1 : shipIndex;
+		
+		if ( shipIndex === -1 )
+			return;
+		
+		if ( bodies[0].tag === bodies[1].tag )
+			return;
+
+		var wind = bodies[1 - shipIndex].parent;
+		if(wind instanceof Wind)
+		{
+			var module = bodies[shipIndex].module;
+
+			if( module instanceof Collider)
+				wind.blow(module);
+
+			contact.SetEnabled( false );
+		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
@@ -125,20 +144,6 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
 					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					
-					module.body.ApplyForce(force, module.body.GetPosition());
-				}
-			}
-		}
-			if(InputsManager.instance["40"] == true)
-		{
-			for(var i in this.modulesSlots)
-			{
-				if(i.split("-")[1] == "top" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
-				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,1));
 					var force = Vectors.mult(direction, module.force);
 					
 					module.body.ApplyForce(force, module.body.GetPosition());
