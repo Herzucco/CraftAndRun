@@ -18,6 +18,8 @@ define( [ "game/Box2D", "game/Collider", "game/Propulsor" ], function( Box2D, Co
 			"lower-right" : {x : 1, y : 1},
 		}
 		
+		this.instance = this;
+		
 		//add contact listener
 		var listener = new Box2D.ContactListener;
 		listener.BeginContact = this.shipCollision;
@@ -44,8 +46,11 @@ define( [ "game/Box2D", "game/Collider", "game/Propulsor" ], function( Box2D, Co
 			var length = this.modules.length;
 			var jointDef = new Box2D.RevoluteJointDef();
 				jointDef.Initialize(this.modules[0].body, this.modules[length-1].body, this.modules[length-1].body.GetWorldCenter());
-				jointDef.enableLimit = true;			
-				this.joins.push(this.world.CreateJoint(jointDef));
+				jointDef.enableLimit = true;
+				
+				var joint = this.world.CreateJoint(jointDef);
+				this.modules[ length - 1 ].joint = joint;
+				this.joins.push( joint );
 		}
 	}
 	
@@ -61,16 +66,21 @@ define( [ "game/Box2D", "game/Collider", "game/Propulsor" ], function( Box2D, Co
 		if ( bodies[0].tag === bodies[1].tag )
 			return;
 			
+		var module = bodies[shipIndex].module;
 		//module hit print type
-		if ( bodies[shipIndex].module instanceof Propulsor )
-			console.log( "Propulsor hit" );
+		if ( module instanceof Collider )
+		{
+			module.hp = Math.max( 0, module.hp - 1 );	
+			console.log( module.hp );
+		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
 	{
 		for(var i = 0; i < this.modules.length; i++)
-			this.modules[i].update(deltaTime);
+			this.modules[i].update(deltaTime, this.world );
 	}
+	
 	Ship.prototype.constructor = Ship;
 
 	return Ship;
