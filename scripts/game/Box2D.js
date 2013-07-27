@@ -11,6 +11,7 @@ define( function( require )
 		Box2D.PolygonShape = require("b2/PolygonShape");
 		Box2D.CircleShape = require("b2/CircleShape");
 		Box2D.CosineWave = require("computeCosineWave");
+		Box2D.RevoluteJointDef = require("b2/Joint");
 	};
 
 	return Box2D;	

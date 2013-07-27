@@ -1,8 +1,10 @@
-define( [ "game/Box2D" ], function( Box2D )
+define( [ "game/Box2D", "game/Wall"], function( Box2D, Wall)
 {
 	var SCALE = 30;
 	var Level = function( canvas, context )
 	{
+
+		this.walls = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
@@ -49,6 +51,8 @@ define( [ "game/Box2D" ], function( Box2D )
 
 			ax = bx;
 			ay = by;
+			this.walls.push(new Wall(this, 20, "left"));
+			this.walls.push(new Wall(this, 20, "right"));
 		}
 
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
@@ -58,6 +62,7 @@ define( [ "game/Box2D" ], function( Box2D )
 	
 	Level.prototype.update = function( deltaTime )
 	{
+		this.checkWalls();
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 	}
@@ -67,6 +72,20 @@ define( [ "game/Box2D" ], function( Box2D )
 		this.world.DrawDebugData();
 	}
 	
+	Level.prototype.checkWalls = function() {
+		var create = true;
+		for(var i=0, j=this.walls.length; i < j; i++) {
+			// if(this.walls[i].y <= Camre.y) {
+			// 	create = false;
+			// }
+		}
+		// if(create && false){
+		// 	this.walls.push(new Wall(this, Camre.y+20, "left"));
+		// 	this.walls.push(new Wall(this, Camera.y+20, "right"));
+		// }
+	}
+
+
 	Level.prototype.constructor = Level;
 	
 	return Level;
