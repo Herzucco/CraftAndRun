@@ -39,6 +39,8 @@ define( [ "game/Ship", "game/Box2D", "puppet/Entities/Entities", "puppets", "pup
 		//add entity machants
 		entitiesModels.init( this.canvas, this.context );
 		Puppets.createEntity( entitiesModels[ "level" ], { level : {} } );
+		Puppets.createEntity( entitiesModels["spaceship_part"],{physic : {}}, "player");
+
 	}
 
 	Game.prototype.loop = function( gameLoop ) 

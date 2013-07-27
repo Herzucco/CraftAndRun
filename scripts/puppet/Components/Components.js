@@ -10,5 +10,7 @@ var componentsModels =
 
 		velocity2d : "return {x : datas.x || 0, y : datas.y || 0};",
 		
-		level : "return { level : datas.level || new Level() };"
+		level : "return { level : datas.level || new Level() };",
+
+		physic : "return { collider : datas.collider || new Collider(square, [50,50], [50,50])};"
 	}

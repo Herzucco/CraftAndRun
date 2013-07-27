@@ -1,5 +1,5 @@
 var puppetsConfig =
 {
 	systemList : [ "UpdateWorld", "RenderWorld" ],
-	collectionList : ["world", "background"]
+	collectionList : ["world", "background", "player"]
 };
