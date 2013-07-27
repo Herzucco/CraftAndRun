@@ -73,14 +73,14 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		if ( module instanceof Collider )
 		{
 		
-			module.hp = Math.max( 0, module.hp - 2 );	
+			module.hp = Math.max( 0, module.hp - 0.5 );	
 			console.log( module.hp );
 		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
 	{
-		if(InputsManager.instance["88"] == true)
+		if(InputsManager.instance["39"] == true)
 		{
 			for(var i in this.modulesSlots)
 			{
@@ -95,7 +95,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-		if(InputsManager.instance["78"] == true)
+		if(InputsManager.instance["37"] == true)
 		{
 			for(var i in this.modulesSlots)
 			{
@@ -110,7 +110,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-		if(InputsManager.instance["86"] == true)
+		if(InputsManager.instance["38"] == true)
 		{
 			for(var i in this.modulesSlots)
 			{

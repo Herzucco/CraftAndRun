@@ -9,7 +9,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
-		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 14]);
+		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 10]);
 		var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
 		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
 		for(var i =0, j = ship_save.length; i<j; i++){
@@ -18,7 +18,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 			}
 		}
 
-		this.wind = new Wind([5, 2],[canvas.width / 3 / SCALE, 5], this.world, {min : 10, max : 30}, 5, "left");
+		// this.wind = new Wind([5, 2],[canvas.width / 3 / SCALE, 5], this.world, {min : 10, max : 30}, 5, "left");
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
