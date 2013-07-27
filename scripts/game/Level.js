@@ -6,7 +6,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.canvas = canvas;
 		this.walls = [];
 		this.collecticles = [];
-		this.timer = Math.random()*500>>0
+		this.collectibles_timer = Math.random()*30;
+		this.winds_timer = 20+(Math.random()*40);
 		this.winds = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
@@ -20,8 +21,6 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 				this.ship.addModule(AssosArray[i], ship_save[i]);
 			}
 		}
-
-		this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5, "left"));
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
@@ -58,12 +57,18 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	Level.prototype.update = function( deltaTime )
 	{
 		// this.checkWalls();
-		if(this.timer > 0){
-			this.timer -= deltaTime;
-			if(this.timer <= 1){
+		if(this.collectibles_timer > 0){
+			this.collectibles_timer -= deltaTime;
+			if(this.collectibles_timer <= 1){
 				this.addCollectibles();
 			}
-			this.timer--;
+		}
+		if(this.winds_timer > 0){
+			console.log(this.winds_timer);
+			this.winds_timer -= deltaTime;
+			if(this.winds_timer <= 1){
+				this.addWinds();
+			}
 		}
 		for(i in this.collectibles){
 			collecticles[i].update(deltaTime);
@@ -136,13 +141,18 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	Level.prototype.addCollectibles = function() {
 		var nbr = Math.random()*5>>0;
 		var x = Math.random()*20;
-		this.timer += Math.random()*500;
-
+		this.collectibles_timer += Math.random()*500;
+		
 		for(var i = 0; i < nbr; i++){
 			this.collecticles.push(new Collectible(this.world, [x, -5+2*i]));
 		}
-
-
+	}
+	Level.prototype.addWinds = function() {
+		var size = [20,1+(Math.random()*2)>>0];
+		var change = (2+Math.random()*6)>>0;
+		var direction = Math.random()>0.5? "left" : "right";
+		this.winds_timer += 20+(Math.random()*40);
+		this.winds.push(new Wind(size,[12,-5], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, direction, change));
 	}
 
 
