@@ -89,6 +89,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		
 		if ( bodies[0].tag === bodies[1].tag )
 			return;
+		
 		if(bodies[1-shipIndex].tag=== "collectible"){
 			this.score ++;
 			bodies[1-shipIndex].collectible.hp = 0;

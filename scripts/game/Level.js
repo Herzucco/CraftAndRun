@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible"], function( Box2D, Wall, Ship, Wind, Collectible)
+define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible", "game/Obstacle"], function( Box2D, Wall, Ship, Wind, Collectible, Obstacle)
 {
 	var SCALE = 30;
 	var Level = function( canvas, context )
@@ -6,7 +6,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.canvas = canvas;
 		this.walls = [];
 		this.collecticles = [];
+		this.obstacles = [];
 		this.collectibles_timer = Math.random()*30;
+		this.obstacles_timer = 0+Math.random()*20;
 		this.winds_timer = 20+(Math.random()*40);
 		this.winds = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
@@ -64,10 +66,15 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 			}
 		}
 		if(this.winds_timer > 0){
-			console.log(this.winds_timer);
 			this.winds_timer -= deltaTime;
 			if(this.winds_timer <= 1){
 				this.addWinds();
+			}
+		}
+		if(this.obstacles_timer > 0){
+			this.obstacles_timer -= deltaTime;
+			if(this.obstacles_timer <= 1){
+				this.addObstacles();
 			}
 		}
 		for(i in this.collectibles){
@@ -153,6 +160,13 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		var direction = Math.random()>0.5? "left" : "right";
 		this.winds_timer += 20+(Math.random()*40);
 		this.winds.push(new Wind(size,[12,-5], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, direction, change));
+	}
+	Level.prototype.addObstacles = function() {
+		var size = [4+Math.random()*3>>0,1.5];
+		var direction = Math.random()>0.5? "left" : "right";
+		var position = direction === "right"? [30-size[0], -5] : [7,-5]
+		this.obstacles_timer += 20+(Math.random()*40);
+		this.obstacles.push(new Obstacle(this.world, position, size, direction));
 	}
 
 
