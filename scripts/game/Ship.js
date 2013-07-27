@@ -24,6 +24,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		//add contact listener
 		var listener = new Box2D.ContactListener;
 		listener.BeginContact = this.shipCollision;
+		listener.PreSolve     = this.shipObstacleCollision;
 		
 		world.SetContactListener( listener );
 	}
@@ -76,6 +77,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			module.hp = Math.max( 0, module.hp - 2 );	
 			console.log( module.hp );
 		}
+	}
+	
+	Ship.prototype.shipObstacleCollision = function( contact, oldManifold )
+	{
+		contact.SetEnabled( false );
 	}
 	
 	Ship.prototype.update = function(deltaTime)
