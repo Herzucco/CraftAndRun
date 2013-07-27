@@ -1,5 +1,7 @@
 define( function( require )
 {
+	var box2D = require( "box2d" );
+	
 	var Box2D = function()
 	{
 		Box2D.World = require("b2/World");
