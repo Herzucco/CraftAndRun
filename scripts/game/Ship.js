@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collider", "game/Propulsor" ], function( Box2D, InputsManager, Vectors, Collider, Propulsor )
+define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind", "game/Collider", "game/Propulsor" ], function( Box2D, InputsManager, Vectors, Wind, Collider, Propulsor )
 {
 	var Ship = function(world, position) 
 	{
@@ -74,7 +74,6 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		//module hit print type
 		if ( module instanceof Collider )
 		{
-		
 			module.hp = Math.max( 0, module.hp - 2 );
 		}
 	}
@@ -87,16 +86,29 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 
 		if ( shipIndex === -1 )
 			return;
+		
+		if ( bodies[0].tag === bodies[1].tag )
+			return;
 		if(bodies[1-shipIndex].tag=== "collectible"){
 			this.score ++;
 			bodies[1-shipIndex].collectible.hp = 0;
 			contact.SetEnabled( false );
+		}else{
+			var wind = bodies[1 - shipIndex].parent;
+			if(wind instanceof Wind)
+			{
+				var module = bodies[shipIndex].module;
+
+				if( module instanceof Collider)
+					wind.blow(module);
+				contact.SetEnabled( false );
+			}
 		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
 	{
-		if(InputsManager.instance["88"] == true)
+		if(InputsManager.instance["39"] == true)
 		{
 			for(var i in this.modulesSlots)
 			{
@@ -110,7 +122,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-		if(InputsManager.instance["78"] == true)
+		if(InputsManager.instance["37"] == true)
 		{
 			for(var i in this.modulesSlots)
 			{
@@ -124,7 +136,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-		if(InputsManager.instance["86"] == true)
+		if(InputsManager.instance["38"] == true)
 		{
 			for(var i in this.modulesSlots)
 			{
