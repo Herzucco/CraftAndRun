@@ -19,7 +19,8 @@ define( [ "game/Box2D", "game/Level"], function( Box2D, level)
 			this.fixdef.shape = new Box2D.PolygonShape();
 			this.fixdef.shape.SetAsBox(size[0],size[1]);
 		}
-		this.body = world.CreateBody( this.bodydef ).CreateFixture( this.fixdef );
+		this.body = world.CreateBody( this.bodydef );
+		this.body.CreateFixture( this.fixdef );
 	}
 	Collider.prototype.constructor = Collider;
 
