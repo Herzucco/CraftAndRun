@@ -1,5 +1,7 @@
-! define(function (require) {
-
+! define( [ "Game" ], function ( Game ) 
+{
+	window.Game = Game;
+/*
 	var computeCosineWave = require("computeCosineWave")
 
 		, World = require("b2/World")
@@ -83,5 +85,5 @@
 
 		world.DrawDebugData();
 	});
-
+*/
 });

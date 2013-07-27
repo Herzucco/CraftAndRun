@@ -40,8 +40,7 @@
 
 		, randomness: 1
 
-		, subdivisions: 50
-
+		, subdivisions: 5
 	};
 
 

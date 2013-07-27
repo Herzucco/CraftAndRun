@@ -1,5 +1,5 @@
 var puppetsConfig =
 {
-	systemList : ["Kinematic", "RenderShape"],
+	systemList : [ "UpdateWorld", "RenderWorld" ],
 	collectionList : ["world", "background"]
 };

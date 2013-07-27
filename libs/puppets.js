@@ -82,7 +82,7 @@ var Puppets = function (config)
 					var component = Object.keys(model.components[i])[0];
 					for (var o in model.components[i][component])
 					{
-						if(constructor[component][o] !== undefined && constructor[component][o] !== null)
+						if( constructor[component] !== undefined && constructor[component][o] !== undefined && constructor[component][o] !== null)
 							model.components[i][component][o] = constructor[component][o];
 					}
 					constructor[component][o] = model.components[i][component][o];

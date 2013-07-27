@@ -1,9 +1,11 @@
 require.config({
-		urlArgs: "bust=" +  Date.now()
+		urlArgs: "bust=" +  Date.now(),
 
-	, paths: {
+	 paths: {
 			"box2d": "../libs/box2d.min",
-			"puppets" : "../libs/puppets"
+			"puppets" : "../libs/puppets",
+			"stats"   : "../libs/stats.min",
+			"Game"    : "game/Game"
 		}
 
 	, shim: {
