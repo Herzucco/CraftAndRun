@@ -17,6 +17,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind"], function( Box2D,
 				this.ship.addModule(AssosArray[i], ship_save[i]);
 			}
 		}
+
 		this.wind = new Wind([5, 2],[canvas.width / 3 / SCALE, 5], this.world, {min : 10, max : 30}, 5, "left");
 
 		this.debugDraw.SetSprite( context );

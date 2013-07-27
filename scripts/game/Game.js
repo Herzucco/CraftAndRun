@@ -26,7 +26,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.state = "editor";
+		this.level = new Level( this.canvas, this.context );
+		this.state = "game";
 		// this.index_menu = new Index();
 		this.editor = new Editor();
 		
@@ -37,7 +38,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 	}
 	
 	Game.prototype.initLevel = function(){
-		this.level = new Level( this.canvas, this.context );
+		
 		delete this.editor;
 	}
 

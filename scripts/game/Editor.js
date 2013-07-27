@@ -93,7 +93,6 @@ define( ["game/InputsManager"],function(InputsManager)
 	
 	Editor.prototype.render = function( context, canvas)
 	{
-		console.log('toto');
 		context.beginPath();
 		context.lineWidth = 2;
 		context.fillStyle = "#FFFFFF";
