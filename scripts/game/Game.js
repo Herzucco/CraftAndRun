@@ -21,7 +21,8 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/C
 	{
 		new Box2D();
 		new InputsManager();
-		Camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
+		
+		this.camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
 		
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
@@ -36,12 +37,15 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/C
 	
 	Game.prototype.update = function( deltaTime )
 	{
+		this.camera.update( deltaTime, this.level.world );
 		this.level.update( deltaTime );
 	}
 	
 	Game.prototype.render = function( context )
 	{
-		this.level.render( context );
+		context.fillRect( 0, 0, this.canvas.width, this.canvas.height );
+		
+		this.level.render( context, this.camera.position );
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 
@@ -65,7 +69,6 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/C
 		Game.instance.update( Game.instance.deltaTime );
 		Game.instance.render( Game.instance.context );
 	
-		Camera.update(Game.instance.deltaTime, Game.instance.level.world);
 		Game.instance.deltaTime = Date.now();
 		
 		stats.end();
