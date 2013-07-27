@@ -74,7 +74,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		{
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "left" || i.split("-")[1] == "top") && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined )
+				if(i.split("-")[1] == "left" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined )
 				{
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
@@ -89,7 +89,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		{
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "right" || i.split("-")[1] == "top")  && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
+				if(i.split("-")[1] == "right" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
 				{
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
@@ -100,7 +100,21 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
-
+		if(InputsManager.instance["86"] == true)
+		{
+			for(var i in this.modulesSlots)
+			{
+				if(i.split("-")[1] == "top" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
+				{
+					var module = this.modulesSlots[i];
+					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+					direction.x *= -1;
+					var force = Vectors.mult(direction, module.force);
+					
+					module.body.ApplyForce(force, module.body.GetPosition());
+				}
+			}
+		}
 		for(var i in this.modulesSlots)
 			if(this.modulesSlots[i].update !== undefined && this.modulesSlots[i].update !== null)
 				this.modulesSlots[i].update(deltaTime);
