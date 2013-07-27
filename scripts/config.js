@@ -5,6 +5,7 @@ require.config({
 			"box2d": "../libs/box2d.min",
 			"puppets" : "../libs/puppets",
 			"stats"   : "../libs/stats.min",
+			"vectors" : "../libs/vectors",
 			"Game"    : "game/Game"
 		}
 

@@ -1,4 +1,4 @@
-define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "stats" ], function( Ship, Box2D, Level, InputsManager )
+define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stats" ], function( Ship, Box2D, Level, InputsManager, Camera )
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -21,6 +21,7 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "stats"
 	{
 		new Box2D();
 		new InputsManager();
+		Camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
 		
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
@@ -30,17 +31,6 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "stats"
 		Game.instance = this;
 
 		this.loop( this.gameLoop );
-	}
-
-	var catchInput = function(e)
-	{
-		var code = e.keyCode;
-		InputsManager.instance[code] = true;
-	}
-	var removeInput = function(e)
-	{
-		var code = e.keyCode;
-		InputsManager.instance[code] = false;
 	}
 	
 	Game.prototype.update = function( deltaTime )
@@ -74,6 +64,7 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "stats"
 		Game.instance.update( Game.instance.deltaTime );
 		Game.instance.render( Game.instance.context );
 	
+		Camera.update(Game.instance.deltaTime, Game.instance.level.world);
 		Game.instance.deltaTime = Date.now();
 		
 		stats.end();
