@@ -1,4 +1,4 @@
-define( [ "game/Ship", "game/Box2D", "game/Level", "stats" ], function( Ship, Box2D, Level )
+define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "stats" ], function( Ship, Box2D, Level, InputsManager )
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -20,6 +20,7 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "stats" ], function( Ship, Bo
 	var Game = function( canvasID )
 	{
 		new Box2D();
+		new InputsManager();
 		
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
@@ -30,6 +31,21 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "stats" ], function( Ship, Bo
 
 		this.loop( this.gameLoop );
 	}
+
+	var catchInput = function(e)
+	{
+		var code = e.keyCode;
+		window.InputsManager[code] = true;
+	}
+	var removeInput = function(e)
+	{
+		var code = e.keyCode;
+		window.InputsManager[code] = false;
+		console.log(window.InputsManager)
+	}
+
+	window.addEventListener("keydown", catchInput);
+	window.addEventListener("keyup", removeInput);
 	
 	Game.prototype.update = function( deltaTime )
 	{
