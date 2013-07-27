@@ -35,17 +35,13 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "stats"
 	var catchInput = function(e)
 	{
 		var code = e.keyCode;
-		window.InputsManager[code] = true;
+		InputsManager.instance[code] = true;
 	}
 	var removeInput = function(e)
 	{
 		var code = e.keyCode;
-		window.InputsManager[code] = false;
-		console.log(window.InputsManager)
+		InputsManager.instance[code] = false;
 	}
-
-	window.addEventListener("keydown", catchInput);
-	window.addEventListener("keyup", removeInput);
 	
 	Game.prototype.update = function( deltaTime )
 	{
