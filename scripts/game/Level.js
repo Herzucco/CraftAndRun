@@ -53,11 +53,7 @@ define( [ "game/Box2D" ], function( Box2D )
 
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
 
-		this.bodydef.position.Set(canvas.width / 3 / SCALE, 0);
-
-		this.fixdef.shape = new Box2D.CircleShape(0.1);
-
-		this.world.CreateBody( this.bodydef ).CreateFixture( this.fixdef );
+		
 	}
 	
 	Level.prototype.update = function( deltaTime )
