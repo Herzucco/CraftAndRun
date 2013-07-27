@@ -6,9 +6,9 @@ define( [ "game/Box2D", "game/Collider", "../../libs/vectors"], function( Box2D,
 		this.force = force || 100;
 	}
 	Propulsor.prototype = Object.create(Collider.prototype);
-	Propulsor.prototype.update = function(deltaTime)
+	Propulsor.prototype.update = function(deltaTime, world)
 	{
-		
+		Collider.prototype.update.call( this, deltaTime, world );
 	}
 	Propulsor.prototype.constructor = Collider;
 

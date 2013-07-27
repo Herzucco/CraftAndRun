@@ -19,6 +19,8 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			"lower-right" : {x : 1, y : 1},
 		}
 		
+		this.instance = this;
+		
 		//add contact listener
 		var listener = new Box2D.ContactListener;
 		listener.BeginContact = this.shipCollision;
@@ -42,8 +44,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		{
 			var jointDef = new Box2D.RevoluteJointDef();
 				jointDef.Initialize(this.firstModule.body, this.modulesSlots[slot].body, this.modulesSlots[slot].body.GetWorldCenter());
-				jointDef.enableLimit = true;			
-				this.joins.push(this.world.CreateJoint(jointDef));
+				jointDef.enableLimit = true;
+				
+				var joint = this.world.CreateJoint(jointDef);
+				this.modulesSlots[slot].joint = joint;
+				this.joins.push( joint );
 		}
 		else
 			this.firstModule = this.modulesSlots[slot];
@@ -62,10 +67,15 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		
 		if ( bodies[0].tag === bodies[1].tag )
 			return;
-			
+		
+		var module = bodies[shipIndex].module;
 		//module hit print type
-		if ( bodies[shipIndex].module instanceof Propulsor )
-			console.log( "Propulsor hit" );
+		if ( module instanceof Collider )
+		{
+		
+			module.hp = Math.max( 0, module.hp - 10 );	
+			console.log( module.hp );
+		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
@@ -119,6 +129,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			if(this.modulesSlots[i].update !== undefined && this.modulesSlots[i].update !== null)
 				this.modulesSlots[i].update(deltaTime);
 	}
+	
 	Ship.prototype.constructor = Ship;
 
 	return Ship;

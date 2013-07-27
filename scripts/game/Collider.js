@@ -3,6 +3,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 	var SCALE = 30;
 	var Collider = function(shape, size, position, world, force)
 	{
+		this.hp = 10;
+	
 		this.force = force || 0;
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
@@ -22,13 +24,21 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 		this.body = world.CreateBody( this.bodydef );
 		this.body.CreateFixture( this.fixdef );
 		
+		this.joint;
+		
 		this.body.tag    = "ship";
 		this.body.module = this;
 	}
-	Collider.prototype.update = function(deltaTime)
+	Collider.prototype.update = function(deltaTime, world)
 	{
-
+		//destroy Joint when HP fails
+		if ( this.hp === 0 && typeof( this.joint ) !== "undefined" )
+		{
+			world.DestroyJoint( this.joint );
+			this.joint = undefined; //force undefined
+		}
 	};
+	
 	Collider.prototype.constructor = Collider;
 
 	return Collider;
