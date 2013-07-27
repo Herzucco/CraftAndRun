@@ -1,10 +1,12 @@
-define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
+define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Collectible"], function( Box2D, Wall, Ship, Collectible)
 {
 	var SCALE = 30;
 	var Level = function( canvas, context )
 	{
+		this.canvas = canvas;
 		this.walls = [];
-		
+		this.collecticles = [];
+		this.timer = Math.random()*500>>0
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
@@ -53,6 +55,16 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 	Level.prototype.update = function( deltaTime )
 	{
 		// this.checkWalls();
+		if(this.timer > 0){
+			this.timer -= deltaTime;
+			if(this.timer <= 1){
+				this.addCollectibles();
+			}
+			this.timer--;
+		}
+		for(i in this.collectibles){
+			collecticles[i].update(deltaTime);
+		}
 		this.ship.update(deltaTime)
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
@@ -114,6 +126,18 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 			this.walls.push(new Wall(this, Ship.y+20, "left"));
 			this.walls.push(new Wall(this, Ship.y+20, "right"));
 		}
+	}
+
+	Level.prototype.addCollectibles = function() {
+		var nbr = Math.random()*5>>0;
+		var x = Math.random()*20;
+		this.timer += Math.random()*500;
+
+		for(var i = 0; i < nbr; i++){
+			this.collecticles.push(new Collectible(this.world, [x, -5+2*i]));
+		}
+
+
 	}
 
 

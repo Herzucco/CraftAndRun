@@ -2,6 +2,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 {
 	var Ship = function(world, position) 
 	{
+		this.score = 0;
 		this.world = world;
 		this.joins = [];
 		this.position = position;
@@ -74,14 +75,23 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		if ( module instanceof Collider )
 		{
 		
-			module.hp = Math.max( 0, module.hp - 2 );	
-			console.log( module.hp );
+			module.hp = Math.max( 0, module.hp - 2 );
 		}
 	}
 	
 	Ship.prototype.shipObstacleCollision = function( contact, oldManifold )
 	{
-		contact.SetEnabled( false );
+		var bodies = [contact.GetFixtureA().GetBody(), contact.GetFixtureB().GetBody()];
+		var shipIndex = ( bodies[0].tag === "ship" ) ? 0 : -1;
+		shipIndex = ( bodies[1].tag === "ship" ) ? 1 : shipIndex;
+
+		if ( shipIndex === -1 )
+			return;
+		if(bodies[1-shipIndex].tag=== "collectible"){
+			this.score ++;
+			bodies[1-shipIndex].collectible.hp = 0;
+			contact.SetEnabled( false );
+		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
@@ -96,7 +106,6 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
 					direction.x *= -1;
 					var force = Vectors.mult(direction, module.force);
-
 					module.body.ApplyForce(force, module.body.GetPosition());
 				}
 			}
@@ -111,7 +120,6 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
 					direction.x *= -1;
 					var force = Vectors.mult(direction, module.force);
-					
 					module.body.ApplyForce(force, module.body.GetPosition());
 				}
 			}
@@ -126,7 +134,6 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
 					direction.x *= -1;
 					var force = Vectors.mult(direction, module.force);
-					
 					module.body.ApplyForce(force, module.body.GetPosition());
 				}
 			}
