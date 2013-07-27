@@ -1,10 +1,10 @@
 define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 {
-	console.log(Ship);
 	var SCALE = 30;
 	var Level = function( canvas, context )
 	{
 		this.walls = [];
+		
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
@@ -65,6 +65,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 			this.walls.push(new Wall(this, 20, "right"));
 		}
 
+		/*
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
 
 		this.bodydef.position.Set(canvas.width / 3 / SCALE, 0);
@@ -73,6 +74,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 
 		body = this.world.CreateBody( this.bodydef );
 		body.CreateFixture( this.fixdef );
+		*/
 	}
 	
 	Level.prototype.update = function( deltaTime )

@@ -21,7 +21,9 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 		}
 		this.body = world.CreateBody( this.bodydef );
 		this.body.CreateFixture( this.fixdef );
-		this.body.tag = "ship";
+		
+		this.body.tag    = "ship";
+		this.body.module = this;
 	}
 	Collider.prototype.update = function(deltaTime)
 	{

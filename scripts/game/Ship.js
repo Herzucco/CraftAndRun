@@ -18,7 +18,14 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			"lower-top" : {x : 0, y : 1},
 			"lower-right" : {x : 1, y : 1},
 		}
+		
+		//add contact listener
+		var listener = new Box2D.ContactListener;
+		listener.BeginContact = this.shipCollision;
+		
+		world.SetContactListener( listener );
 	}
+	
 	Ship.prototype.addModule = function(slot, moduleType)
 	{
 		var position = this.modulesSlots[slot];
@@ -43,6 +50,24 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 
 		this.nbModules++;
 	}
+	
+	Ship.prototype.shipCollision = function( contact )
+	{
+		var bodies = [ contact.GetFixtureA().GetBody(), contact.GetFixtureB().GetBody() ];
+		var shipIndex = ( bodies[0].tag === "ship" ) ? 0 : -1;
+		shipIndex = ( bodies[1].tag === "ship" ) ? 1 : shipIndex;
+		
+		if ( shipIndex === -1 )
+			return;
+		
+		if ( bodies[0].tag === bodies[1].tag )
+			return;
+			
+		//module hit print type
+		if ( bodies[shipIndex].module instanceof Propulsor )
+			console.log( "Propulsor hit" );
+	}
+	
 	Ship.prototype.update = function(deltaTime)
 	{
 		if(InputsManager.instance["88"] == true)
