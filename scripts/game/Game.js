@@ -70,7 +70,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 				this.editor.render( context, this.canvas);
 			break;
 			case "game":
-				this.level.render( context );
+				context.fillRect( 0, 0, this.canvas.width, this.canvas.height );
+				this.level.render( context, this.camera.position );
 			break;
 			default:
 			break;

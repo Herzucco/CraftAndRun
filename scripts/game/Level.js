@@ -10,12 +10,13 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
 		this.ship = new Ship(this.world, [canvas.width / 3 / SCALE, 10]);
-		this.ship.addModule("upper-top", "collider");
-		this.ship.addModule("middle-left", "collider");
-		this.ship.addModule("middle-top", "collider");
-		this.ship.addModule("middle-right", "collider");
-		this.ship.addModule("lower-left", "propulsor");
-		this.ship.addModule("lower-right", "propulsor");
+		var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
+		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
+		for(var i =0, j = ship_save.length; i<j; i++){
+			if(ship_save[i]!== "void"){
+				this.ship.addModule(AssosArray[i], ship_save[i]);
+			}
+		}
 		console.log(this.ship)
 
 		this.debugDraw.SetSprite( context );
