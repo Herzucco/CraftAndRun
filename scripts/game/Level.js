@@ -1,14 +1,15 @@
-define( [ "game/Box2D", "game/Wall"], function( Box2D, Wall)
+define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 {
+	console.log(Ship);
 	var SCALE = 30;
 	var Level = function( canvas, context )
 	{
-
 		this.walls = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
+		this.ship = new Ship(this.world);
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
@@ -62,7 +63,7 @@ define( [ "game/Box2D", "game/Wall"], function( Box2D, Wall)
 	
 	Level.prototype.update = function( deltaTime )
 	{
-		this.checkWalls();
+		// this.checkWalls();
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 	}
@@ -75,14 +76,14 @@ define( [ "game/Box2D", "game/Wall"], function( Box2D, Wall)
 	Level.prototype.checkWalls = function() {
 		var create = true;
 		for(var i=0, j=this.walls.length; i < j; i++) {
-			// if(this.walls[i].y <= Camre.y) {
-			// 	create = false;
-			// }
+			if(this.walls[i].y <= Ship.y) {
+				create = false;
+			}
 		}
-		// if(create && false){
-		// 	this.walls.push(new Wall(this, Camre.y+20, "left"));
-		// 	this.walls.push(new Wall(this, Camera.y+20, "right"));
-		// }
+		if(create && false){
+			this.walls.push(new Wall(this, Ship.y+20, "left"));
+			this.walls.push(new Wall(this, Ship.y+20, "right"));
+		}
 	}
 
 
