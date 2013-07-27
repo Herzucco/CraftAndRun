@@ -1,5 +1,6 @@
 define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "stats" ], function( Ship, Box2D, Level, InputsManager, Camera )
 {
+	console.log(Ship);
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
     	|| window.mozRequestAnimationFrame
@@ -27,7 +28,7 @@ define( [ "game/Ship", "game/Box2D", "game/Level", "game/InputsManager", "game/C
 		
 		this.level = new Level( this.canvas, this.context );
 		this.spaceShip = new Ship(this.level);
-		
+
 		Game.instance = this;
 
 		this.loop( this.gameLoop );

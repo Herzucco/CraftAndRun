@@ -13,7 +13,11 @@ define( [ "game/Box2D", "game/Collider" ], function( Box2D, Collider )
 				Level.world.CreateJoint(jointDef);
 			}	
 		}
+		this.x;
+		this.y;
 	}
 
+	Ship.prototype.constructor = Ship;
+	
 	return Ship;
 });
