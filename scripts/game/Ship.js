@@ -73,7 +73,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		if ( module instanceof Collider )
 		{
 		
-			module.hp = Math.max( 0, module.hp - 10 );	
+			module.hp = Math.max( 0, module.hp - 2 );	
 			console.log( module.hp );
 		}
 	}
@@ -126,8 +126,8 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			}
 		}
 		for(var i in this.modulesSlots)
-			if(this.modulesSlots[i].update !== undefined && this.modulesSlots[i].update !== null)
-				this.modulesSlots[i].update(deltaTime);
+			if( typeof( this.modulesSlots[i].update ) !== "undefined" )
+				this.modulesSlots[i].update(deltaTime, this.world );
 	}
 	
 	Ship.prototype.constructor = Ship;
