@@ -21,8 +21,11 @@ define( [ "game/Box2D", "game/Level"], function( Box2D, level)
 		}
 		this.body = world.CreateBody( this.bodydef );
 		this.body.CreateFixture( this.fixdef );
-		this.body.tag = "ship";
+		
+		this.body.tag    = "ship";
+		this.body.module = this;
 	}
+	
 	Collider.prototype.constructor = Collider;
 
 	return Collider;
