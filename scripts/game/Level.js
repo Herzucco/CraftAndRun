@@ -17,7 +17,6 @@ define( [ "game/Box2D", "game/Wall", "game/Ship"], function( Box2D, Wall, Ship)
 				this.ship.addModule(AssosArray[i], ship_save[i]);
 			}
 		}
-		console.log(this.ship)
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);

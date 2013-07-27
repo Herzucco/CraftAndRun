@@ -26,7 +26,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.state = "editor";
+		this.state = "index";
 		// this.index_menu = new Index();
 		this.editor = new Editor();
 		
