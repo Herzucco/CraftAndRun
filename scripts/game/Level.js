@@ -60,6 +60,17 @@ define( [ "game/Box2D" ], function( Box2D )
 		this.world.CreateBody( this.bodydef ).CreateFixture( this.fixdef );
 	}
 	
+	Level.prototype.update = function( deltaTime )
+	{
+		this.world.Step(1 / 60, 10, 10);
+		this.world.ClearForces();
+	}
+	
+	Level.prototype.render = function( context )
+	{
+		this.world.DrawDebugData();
+	}
+	
 	Level.prototype.constructor = Level;
 	
 	return Level;

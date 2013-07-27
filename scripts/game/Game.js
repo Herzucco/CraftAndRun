@@ -1,4 +1,4 @@
-define( [ "game/Ship", "game/Box2D", "puppet/Entities/Entities", "puppets", "puppet/puppetsConfig", "stats" ], function( Ship, Box2D, entitiesModels )
+define( [ "game/Ship", "game/Box2D", "game/Level", "stats" ], function( Ship, Box2D, Level )
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -19,28 +19,28 @@ define( [ "game/Ship", "game/Box2D", "puppet/Entities/Entities", "puppets", "pup
 	
 	var Game = function( canvasID )
 	{
-		new Puppets( puppetsConfig );
 		new Box2D();
 		
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		window.context = this.context;
+		this.level = new Level( this.canvas, this.context );
 		
 		Game.instance = this;
-		
-		this.initPuppets();
-		
+
 		this.loop( this.gameLoop );
 	}
 	
-	Game.prototype.initPuppets = function()
+	Game.prototype.update = function( deltaTime )
 	{
-		//add entity machants
-		entitiesModels.init( this.canvas, this.context );
-		Puppets.createEntity( entitiesModels[ "level" ], { level : {} } );
+		this.level.update( deltaTime );
 	}
-
+	
+	Game.prototype.render = function( context )
+	{
+		this.level.render( context );
+	}
+	
 	Game.prototype.loop = function( gameLoop ) 
 	{
         var _cb = function() 
@@ -59,8 +59,9 @@ define( [ "game/Ship", "game/Box2D", "puppet/Entities/Entities", "puppets", "pup
 		//right now we are in window scope not game, because AnimFrame! 
 		Game.instance.deltaTime = ( Date.now() - Game.instance.deltaTime ) * 0.001;
 	
-		Puppets.run();
-		
+		Game.instance.update( Game.instance.deltaTime );
+		Game.instance.render( Game.instance.context );
+	
 		Game.instance.deltaTime = Date.now();
 		
 		stats.end();
