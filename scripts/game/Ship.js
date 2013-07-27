@@ -125,6 +125,20 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 				}
 			}
 		}
+			if(InputsManager.instance["40"] == true)
+		{
+			for(var i in this.modulesSlots)
+			{
+				if(i.split("-")[1] == "top" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
+				{
+					var module = this.modulesSlots[i];
+					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,1));
+					var force = Vectors.mult(direction, module.force);
+					
+					module.body.ApplyForce(force, module.body.GetPosition());
+				}
+			}
+		}
 		for(var i in this.modulesSlots)
 			if( typeof( this.modulesSlots[i].update ) !== "undefined" )
 				this.modulesSlots[i].update(deltaTime, this.world );
