@@ -145,6 +145,8 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	Ship.prototype.die = function()
 	{
 		this.dead = true;
+		Game.initEditor();
+		Game.closeGame();
 		for(var i in this.modulesSlots)
 			delete this.modulesSlots[i];
 

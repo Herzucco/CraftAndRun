@@ -47,6 +47,11 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 	Game.prototype.closeEditor = function(){
 		delete this.editor;
 	}
+
+	Game.prototype.closeGame = function(){
+		delete this.game;
+	}
+
 	Game.prototype.initLevel = function(){
 		this.level = new Level( this.canvas, this.context );
 		this.state = "game";
