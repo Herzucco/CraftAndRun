@@ -59,7 +59,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		*/	
 	Level.prototype.update = function( deltaTime )
 	{
-		console.log(Object.values(this.ship.modulesSlots));
+
 		// this.checkWalls();
 		if(this.collectibles_timer > 0){
 			this.collectibles_timer -= deltaTime;
