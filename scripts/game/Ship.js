@@ -117,11 +117,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		}
 	}
 	
-	Ship.prototype.update = function(deltaTime)
+	Ship.prototype.update = function(deltaTime, start)
 	{
 		if(!this.dead)
 		{
-			this.checkInputs();
+			this.checkInputs(start);
 			for(var i in this.modulesSlots)
 			{
 				var oneAlive = false;
@@ -153,9 +153,9 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	{
 		context.strokeStyle = "#FFFFFF";
 		context.fillStyle = "#000000";
-		context.font = "Bold 47px MenuFont";
-	    context.fillText(""+this.score+"", 800, 50);
-	    context.strokeText(""+this.score+"", 800, 50);
+		context.font = "Bold 30px MenuFont";
+	    context.fillText("Score : "+this.score+"", 720, 50);
+	    context.strokeText("Score : "+this.score+"", 720, 50);
 
 	    context.drawImage(window.Images.collectibles, 0,0,466,1278, 730, 60, 40,40);
 	    console.log(this.collectibles);
@@ -168,43 +168,53 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	    	}
 	    }
 	}
-	Ship.prototype.checkInputs = function()
+	Ship.prototype.checkInputs = function(start)
 	{
 		if(InputsManager.instance["37"] == true)
 		{
 			var haveMoved = false;
+			var nbMods = 0;
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "left" || i.split("-")[1] == "top") && this.modulesSlots[i] instanceof Collider )
+				if(this.modulesSlots[i] instanceof Collider)
 				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					module.body.ApplyForce(force, module.body.GetPosition());
-					haveMoved = true;
+					nbMods++;
+					if(i.split("-")[1] == "left" || i.split("-")[1] == "top")
+					{
+						var module = this.modulesSlots[i];
+						var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+						direction.x *= -1;
+						var force = Vectors.mult(direction, module.force);
+						module.body.ApplyForce(force, module.body.GetPosition());
+						haveMoved = true;
+					}
 				}
 			}
-			if(haveMoved)
-				this.score++;
+			if(haveMoved && start)
+				this.score+= 10 - nbMods;
 		}
 		if(InputsManager.instance["39"] == true)
 		{
 			var haveMoved = false;
+			var nbMods = 0;
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "right" || i.split("-")[1] == "top") && this.modulesSlots[i] instanceof Collider)
+				if(this.modulesSlots[i] instanceof Collider)
 				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					module.body.ApplyForce(force, module.body.GetPosition());
-					haveMoved = true;
+					nbMods++;
+					if(i.split("-")[1] == "right" || i.split("-")[1] == "top")
+					{
+						var module = this.modulesSlots[i];
+						var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+						direction.x *= -1;
+						var force = Vectors.mult(direction, module.force);
+						module.body.ApplyForce(force, module.body.GetPosition());
+						haveMoved = true;
+					}
 				}
 			}
-			if(haveMoved)
-				this.score++;
+			if(haveMoved && start)
+				this.score+= 10 - nbMods;
 		}
 	}
 	Ship.prototype.constructor = Ship;
