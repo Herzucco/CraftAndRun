@@ -46,15 +46,22 @@ define( [  ], function(  )
 	{
 		if ( window.OCW )
 		{
-			this.KEY_O = window.OCW.KEY_O; this.KEY_U = window.OCW.KEY_U;
-			this.KEY_Y = window.OCW.KEY_Y; this.KEY_A = window.OCW.KEY_A;
 			
-			this.KEY_L1 = window.OCW.KEY_L1; this.KEY_L2 = window.OCW.KEY_L2;
-			this.KEY_R1 = window.OCW.KEY_R1; this.KEY_R2 = window.OCW.KEY_R2;
+			this.KEY_O = window.OCW.getKey( "o" ) == "true"; this.KEY_U = window.OCW.getKey( "u" ) == "true";
+			this.KEY_Y = window.OCW.getKey( "y" ) == "true"; this.KEY_A = window.OCW.getKey( "a" ) == "true";
 			
-			this.AXIS_LS_X = window.OCW.AXIS_LS_X; this.AXIS_LS_Y = window.OCW.AXIS_LS_Y;
-			this.AXIS_RS_X = window.OCW.AXIS_RS_X; this.AXIS_RS_Y = window.OCW.AXIS_RS_Y;
-			this.AXIS_L2   = window.OCW.AXIS_L2;   this.AXIS_R2   = window.OCW.AXIS_R2;
+			this.KEY_L1 = window.OCW.getKey( "l1" ) == "true"; this.KEY_L2 = window.OCW.getKey( "l2" ) == "true";
+			this.KEY_R1 = window.OCW.getKey( "r1" ) == "true"; this.KEY_R2 = window.OCW.getKey( "r2" ) == "true";
+			
+			this.AXIS_LS_X = parseFloat( window.OCW.getKey( "lsx" ) ); 
+			this.AXIS_LS_Y = parseFloat( window.OCW.getKey( "lsy" ) );
+			
+			this.AXIS_RS_X = parseFloat( window.OCW.getKey( "rsx" ) );
+			this.AXIS_RS_Y = parseFloat( window.OCW.getKey( "rsy" ) );
+			
+			this.AXIS_L2 = parseFloat( window.OCW.getKey( "al2" ) );
+			this.AXIS_R2 = parseFloat( window.OCW.getKey( "ar2" ) );
+			
 		}
 	}
 	
