@@ -19,11 +19,11 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.ship = new Ship(this.world, [canvas.width / 2 / SCALE, 14]);
 		var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
 		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
-		for(var i =0, j = ship_save.length; i<j; i++){
-			if(ship_save[i]!== "void"){
-				this.ship.addModule(AssosArray[i], ship_save[i]);
+		for(var i =0, j = 4; i<j; i++){
+		//	if(ship_save[i]!== "void"){
+				this.ship.addModule(AssosArray[i], "propulsor");
 			}
-		}
+	//	}
 
 		//this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5));
 
@@ -68,8 +68,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 			ay = by;
 		}
 	*/
-			this.walls.push(new Wall(this, 20, "left"));
-			this.walls.push(new Wall(this, 20, "right"));
+		this.walls.push(new Wall(this, 20, "left"));
+		this.walls.push(new Wall(this, 20, "right"));
 		/*
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
 

@@ -26,7 +26,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.state = "pressStart";
+		this.state = "game";
 		this.pressStart = new PressStart();
 		this.level = new Level( this.canvas, this.context );
 		
@@ -75,6 +75,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			default:
 			break;
 		}
+		
+		InputsManager.instance.update( deltaTime );
 	}
 	
 	Game.prototype.render = function( context )
@@ -98,6 +100,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			default:
 			break;
 		}
+		
+		InputsManager.instance.render( context );
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 

@@ -60,22 +60,22 @@ define( [  ], function(  )
 	
 	InputsManager.prototype.render = function( context )
 	{
-		context.fillText( "O:" + this.KEY_O, 25,  25 );
-		context.fillText( "U:" + this.KEY_U, 50,  25 );
-		context.fillText( "Y:" + this.KEY_Y, 75,  25 );
-		context.fillText( "A:" + this.KEY_A, 100, 25 );
+		context.fillText( "O:" + this.KEY_O, 125, 25 );
+		context.fillText( "U:" + this.KEY_U, 170, 25 );
+		context.fillText( "Y:" + this.KEY_Y, 225, 25 );
+		context.fillText( "A:" + this.KEY_A, 300, 25 );
 		
-		context.fillText( "L1:" + this.KEY_L1, 25,  50 );
-		context.fillText( "L2:" + this.KEY_L2, 50,  50 );
-		context.fillText( "R1:" + this.KEY_R1, 75,  50 );
-		context.fillText( "R2:" + this.KEY_R2, 100, 50 );
+		context.fillText( "L1:" + this.KEY_L1, 125, 50 );
+		context.fillText( "L2:" + this.KEY_L2, 170, 50 );
+		context.fillText( "R1:" + this.KEY_R1, 225, 50 );
+		context.fillText( "R2:" + this.KEY_R2, 300, 50 );
 		
-		context.fillText( "LS X:" + this.AXIS_LS_X, 25,  75 );
-		context.fillText( "LS Y:" + this.AXIS_LS_Y, 50,  75 );
-		context.fillText( "RS X:" + this.AXIS_RS_X, 75,  75 );
-		context.fillText( "RS Y:" + this.AXIS_RS_Y, 100, 75 );
-		context.fillText( "L2:" + this.AXIS_L2, 125, 75 );
-		context.fillText( "R2:" + this.AXIS_R2, 150, 75 );
+		context.fillText( "LS X:" + this.AXIS_LS_X, 125, 75 );
+		context.fillText( "LS Y:" + this.AXIS_LS_Y, 170, 75 );
+		context.fillText( "RS X:" + this.AXIS_RS_X, 225, 75 );
+		context.fillText( "RS Y:" + this.AXIS_RS_Y, 300, 75 );
+		context.fillText( "L2:" + this.AXIS_L2, 125, 100 );
+		context.fillText( "R2:" + this.AXIS_R2, 170, 100 );
 	}
 	
 	return InputsManager;
