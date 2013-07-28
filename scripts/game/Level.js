@@ -9,9 +9,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.walls = [];
 		this.collectibles = [];
 		this.obstacles = [];
-		this.collectibles_timer = Math.random()*3;
+		this.collectibles_timer = 15+(Math.random()*15);
 		this.obstacles_timer = 10+Math.random()*20;
-		this.winds_timer = 2+(Math.random()*1);
+		this.winds_timer = 20+(Math.random()*40);
 		this.winds = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
@@ -123,8 +123,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	Level.prototype.render = function( context, canvas )
 	{
 		var bg_position = this.ship.score+this.time > 18877 ? 0: 18877- canvas.height - (this.ship.score+this.time);
-		var wall_position = this.ship.score+this.time*2 % 600;
-
+		var wall_position = (this.ship.score+this.time*2) % 600;
 		context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
 		if(!!this.bottom){
 			context.drawImage(window.Images.ground,0,0,2440,556,0,this.bottom.GetBody().GetPosition().y*30-30, canvas.width/2, 30);
@@ -145,9 +144,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	Level.prototype.addCollectibles = function() {
 		var nbr = 1+(Math.random()*5)>>0;
 		var x = (10+Math.random()*18)>>0;
-		this.collectibles_timer += Math.random()*30;
+		this.collectibles_timer += 15+(Math.random()*15);
 		for(var i = 0; i < nbr; i++){
-			this.collectibles.push(new Collectible(this.world, [x, -5+2*i]));
+			this.collectibles.push(new Collectible(this.world, [x, -8+2*i]));
 		}
 	}
 	Level.prototype.addWinds = function() {
