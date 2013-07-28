@@ -1,7 +1,9 @@
-define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collider", "game/Propulsor" ], function( Box2D, InputsManager, Vectors, Collider, Propulsor )
+define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind", "game/Collider", "game/Propulsor" ], function( Box2D, InputsManager, Vectors, Wind, Collider, Propulsor )
 {
 	var Ship = function(world, position) 
 	{
+		this.dead = false;
+		this.score = 0;
 		this.world = world;
 		this.joins = [];
 		this.position = position;
@@ -24,6 +26,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 		//add contact listener
 		var listener = new Box2D.ContactListener;
 		listener.BeginContact = this.shipCollision;
+		listener.PreSolve     = this.shipObstacleCollision;
 		
 		world.SetContactListener( listener );
 	}
@@ -69,67 +72,125 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Collid
 			return;
 		
 		var module = bodies[shipIndex].module;
+		if(bodies[1 - shipIndex] === null || bodies[1 - shipIndex] === undefined)
+			var obstacle = bodies[shipIndex + 1];
+		else
+			var obstacle = bodies[1 - shipIndex];
+
 		//module hit print type
-		if ( module instanceof Collider )
+		if ( module instanceof Collider && obstacle.tag !== "wind" && obstacle.tag !== "collectible")
 		{
+			module.hp = Math.max( 0, module.hp - 0.5 );
+		}
+	}
+	
+	Ship.prototype.shipObstacleCollision = function( contact, oldManifold )
+	{
+		var bodies = [contact.GetFixtureA().GetBody(), contact.GetFixtureB().GetBody()];
+		var shipIndex = ( bodies[0].tag === "ship" ) ? 0 : -1;
+		shipIndex = ( bodies[1].tag === "ship" ) ? 1 : shipIndex;
+
+		if ( shipIndex === -1 )
+			return;
 		
-			module.hp = Math.max( 0, module.hp - 2 );	
-			console.log( module.hp );
+		if ( bodies[0].tag === bodies[1].tag )
+			return;
+		
+		if(bodies[1-shipIndex].tag=== "collectible"){
+			this.score ++;
+			bodies[1-shipIndex].collectible.hp = 0;
+			contact.SetEnabled( false );
+		}else{
+			var wind = bodies[1 - shipIndex].parent;
+			if(wind instanceof Wind)
+			{
+				var module = bodies[shipIndex].module;
+
+				if( module instanceof Collider)
+					wind.blow(module);
+				contact.SetEnabled( false );
+			}
 		}
 	}
 	
 	Ship.prototype.update = function(deltaTime)
 	{
-		if(InputsManager.instance["88"] == true)
+		if(!this.dead)
 		{
+			this.checkInputs();
 			for(var i in this.modulesSlots)
 			{
-				if(i.split("-")[1] == "left" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined )
+				var oneAlive = false;
+				if( this.modulesSlots[i] instanceof Collider )
 				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
+					this.modulesSlots[i].update(deltaTime, this.world );
+					if(this.modulesSlots[i].body.GetPosition().y < 20)
+						oneAlive = true;
+					if(this.modulesSlots[i].hp <= 0)
+					{
+						this.modulesSlots[i] = {};
+					}
+				}
+			}
 
-					module.body.ApplyForce(force, module.body.GetPosition());
-				}
-			}
+			if(!oneAlive)
+				this.die();
 		}
-		if(InputsManager.instance["78"] == true)
-		{
-			for(var i in this.modulesSlots)
-			{
-				if(i.split("-")[1] == "right" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
-				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					
-					module.body.ApplyForce(force, module.body.GetPosition());
-				}
-			}
-		}
-		if(InputsManager.instance["86"] == true)
-		{
-			for(var i in this.modulesSlots)
-			{
-				if(i.split("-")[1] == "top" && this.modulesSlots[i].body !== null && this.modulesSlots[i].body !== undefined)
-				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					
-					module.body.ApplyForce(force, module.body.GetPosition());
-				}
-			}
-		}
-		for(var i in this.modulesSlots)
-			if( typeof( this.modulesSlots[i].update ) !== "undefined" )
-				this.modulesSlots[i].update(deltaTime, this.world );
 	}
-	
+	Ship.prototype.die = function()
+	{
+		console.log("I'M DEAD")
+		this.dead = true;
+		for(var i in this.modulesSlots)
+			delete this.modulesSlots[i];
+
+		this.joins.length = 0;
+	}
+	Ship.prototype.checkInputs = function()
+	{
+		if(InputsManager.instance["39"] == true)
+		{
+			for(var i in this.modulesSlots)
+			{
+				if(i.split("-")[1] == "left" && this.modulesSlots[i] instanceof Collider )
+				{
+					var module = this.modulesSlots[i];
+					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+					direction.x *= -1;
+					var force = Vectors.mult(direction, module.force);
+					module.body.ApplyForce(force, module.body.GetPosition());
+				}
+			}
+		}
+		if(InputsManager.instance["37"] == true)
+		{
+			for(var i in this.modulesSlots)
+			{
+				if(i.split("-")[1] == "right" && this.modulesSlots[i] instanceof Collider)
+				{
+					var module = this.modulesSlots[i];
+					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+					direction.x *= -1;
+					var force = Vectors.mult(direction, module.force);
+					module.body.ApplyForce(force, module.body.GetPosition());
+				}
+			}
+		}
+		if(InputsManager.instance["38"] == true)
+		{
+			for(var i in this.modulesSlots)
+			{
+				if(i.split("-")[1] == "top" && this.modulesSlots[i] instanceof Collider)
+				{
+					var module = this.modulesSlots[i];
+					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+					direction.x *= -1;
+					var force = Vectors.mult(direction, module.force);
+					module.body.ApplyForce(force, module.body.GetPosition());
+				}
+			}
+		}
+	}
 	Ship.prototype.constructor = Ship;
 
 	return Ship;
