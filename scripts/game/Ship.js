@@ -97,7 +97,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 			return;
 		
 		if(bodies[1-shipIndex].tag=== "collectible"){
-			this.score ++;
+			this.score += 100;
 			bodies[1-shipIndex].collectible.hp = 0;
 			contact.SetEnabled( false );
 		}else{
@@ -139,12 +139,17 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	}
 	Ship.prototype.die = function()
 	{
-		console.log("I'M DEAD")
 		this.dead = true;
 		for(var i in this.modulesSlots)
 			delete this.modulesSlots[i];
 
 		this.joins.length = 0;
+	}
+	Ship.prototype.render = function(context)
+	{
+		context.fillStyle = "#000000";
+		context.font = "Bold 47px MenuFont";
+	    context.fillText(""+this.score+"", 800, 50);
 	}
 	Ship.prototype.checkInputs = function()
 	{

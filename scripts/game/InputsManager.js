@@ -60,6 +60,7 @@ define( [  ], function(  )
 	
 	InputsManager.prototype.render = function( context )
 	{
+	    context.font = "Bold 10px Arial";
 		context.fillText( "O:" + this.KEY_O, 125, 25 );
 		context.fillText( "U:" + this.KEY_U, 170, 25 );
 		context.fillText( "Y:" + this.KEY_Y, 225, 25 );

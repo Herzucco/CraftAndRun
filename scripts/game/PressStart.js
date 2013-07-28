@@ -19,10 +19,14 @@ define( ["game/InputsManager"],function(InputsManager)
 	
 	PressStart.prototype.render = function( context, canvas)
 	{
-		context.fillStyle = "#FFAAFF";
+		context.fillStyle = "#000000";
 		context.fillRect(0,0,canvas.width, canvas.height);
         context.drawImage(window.Images.bg,0,0,canvas.width,canvas.height);
         context.drawImage(window.Images.logo, canvas.width/2-logoWidth/2, 100, logoWidth, logoHeight);
+	    context.font = "Bold 47px MenuFont";
+	    var startText = "Press   Start";
+	    var dim = context.measureText(startText);
+	    context.fillText(startText, canvas.width / 2 - dim.width / 2, 900 / 2 - 25);
 	}
 
 
