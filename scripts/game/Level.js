@@ -129,8 +129,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 
 		context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
 		if(!!this.bottom){
-			context.drawImage(window.Images.ground,0,0,2440,556,0,this.bottom.GetBody().GetPosition().y*30-15, canvas.width/2, 30);
-			context.drawImage(window.Images.ground,0,0,2440,556,canvas.width/2,this.bottom.GetBody().GetPosition().y*30-15, canvas.width/2, 30);
+			context.drawImage(window.Images.ground,0,0,2440,556,0,this.bottom.GetBody().GetPosition().y*30-30, canvas.width/2, 30);
+			context.drawImage(window.Images.ground,0,0,2440,556,canvas.width/2,this.bottom.GetBody().GetPosition().y*30-30, canvas.width/2, 30);
 		}
 		context.drawImage(window.Images.left_wall,0,0,1678,4552,-50,wall_position,150,600);
 		context.drawImage(window.Images.right_wall,0,0,1678,4552,canvas.width-100,wall_position,150,600);
