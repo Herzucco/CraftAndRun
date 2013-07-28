@@ -113,7 +113,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 			}
 		}
 		if(!this.ship.dead)
-				this.ship.update(deltaTime);
+				this.ship.update(deltaTime, this.start);
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 

@@ -113,11 +113,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		}
 	}
 	
-	Ship.prototype.update = function(deltaTime)
+	Ship.prototype.update = function(deltaTime, start)
 	{
 		if(!this.dead)
 		{
-			this.checkInputs();
+			this.checkInputs(start);
 			for(var i in this.modulesSlots)
 			{
 				var oneAlive = false;
@@ -149,9 +149,9 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	{
 		context.strokeStyle = "#FFFFFF";
 		context.fillStyle = "#000000";
-		context.font = "Bold 47px MenuFont";
-	    context.fillText(""+this.score+"", 800, 50);
-	    context.strokeText(""+this.score+"", 800, 50);
+		context.font = "Bold 30px MenuFont";
+	    context.fillText("Score : "+this.score+"", 750, 50);
+	    context.strokeText("Score : "+this.score+"", 750, 50);
 
 	    for(var key in this.modulesSlots){
 	    	if(this.modulesSlots[key] instanceof Collider){
@@ -159,7 +159,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	    	}
 	    }
 	}
-	Ship.prototype.checkInputs = function()
+	Ship.prototype.checkInputs = function(start)
 	{
 		if(InputsManager.instance["37"] == true)
 		{
@@ -176,7 +176,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 					haveMoved = true;
 				}
 			}
-			if(haveMoved)
+			if(haveMoved && start)
 				this.score++;
 		}
 		if(InputsManager.instance["39"] == true)
@@ -194,7 +194,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 					haveMoved = true;
 				}
 			}
-			if(haveMoved)
+			if(haveMoved && start)
 				this.score++;
 		}
 	}
