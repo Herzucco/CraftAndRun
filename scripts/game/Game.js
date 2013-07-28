@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "game/PressStart", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor, PressStart)
+define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "game/PressStart", "game/SplashScreen", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor, PressStart, Splash_screen)
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -26,9 +26,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.state = "pressStart";
-		this.pressStart = new PressStart();
-		this.level = new Level( this.canvas, this.context );
+		this.state = "splash_screen";
+		this.splash_screen = new Splash_screen(this.canvas, this.context);
 		
 
 		Game.instance = this;
@@ -36,6 +35,12 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.loop( this.gameLoop );
 	}
 	
+	Game.prototype.closeSplashScreen = function(){
+		delete this.splash_screen;
+		this.pressStart = new PressStart(this.canvas, this.context);
+		this.state = "pressStart";
+	}
+
 	Game.prototype.closeEditor = function(){
 		delete this.editor;
 	}
@@ -71,6 +76,11 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			break;
 			case "over":
 				this.gameover.update( deltaTime );
+			break;
+			case "splash_screen":
+				this.splash_screen.waitLoaded( deltaTime );
+			break;
+			case "gameover":
 			break;
 			default:
 			break;
