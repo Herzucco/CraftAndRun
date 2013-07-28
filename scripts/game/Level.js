@@ -22,12 +22,13 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		} else{
 			var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
 		}
-		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
+		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"];
 		for(var i =0, j = ship_save.length; i<j; i++){
 			if(ship_save[i]!== "void"){
 				this.ship.addModule(AssosArray[i], ship_save[i]);
 			}
 		}
+	//	}
 
 		//this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5));
 
@@ -43,16 +44,33 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.fixdef.friction = 0.5;
 		this.fixdef.restitution = 0.0;
 		
-		this.walls.push(new Wall(this, 20, "left"));
-		this.walls.push(new Wall(this, 20, "right"));
-
 		this.bodydef.type = Box2D.Body.b2_staticBody;
 		this.bodydef.position.Set(16, 18);
 		this.fixdef.shape = new Box2D.PolygonShape();
 		this.fixdef.shape.SetAsBox(14,1);
 		this.bottom = this.world.CreateBody(this.bodydef).CreateFixture(this.fixdef);
-	}
 
+		/*	this.bodydef.type = Box2D.Body.b2_staticBody;
+
+			this.bodydef.position.Set(x, y);
+
+			this.fixdef.shape = new Box2D.PolygonShape();
+			this.fixdef.shape.SetAsArray([
+					new Box2D.Vec2(ax - x, ay)
+					, new Box2D.Vec2(bx - x, by)
+					, new Box2D.Vec2(bx - x, by + height)
+					, new Box2D.Vec2(ax - x, ay + height)
+					], 4);
+
+			body = this.world.CreateBody( this.bodydef );
+			body.CreateFixture( this.fixdef );
+			
+			ax = bx;
+			ay = by;
+		}
+	*/
+		this.walls.push(new Wall(this, 20, "left"));
+		this.walls.push(new Wall(this, 20, "right"));
 		/*
 		this.bodydef.type = Box2D.Body.b2_dynamicBody;
 
@@ -62,7 +80,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 
 		body = this.world.CreateBody( this.bodydef );
 		body.CreateFixture( this.fixdef );
-		*/	
+		*/
+	}
+	
 	Level.prototype.update = function( deltaTime )
 	{
 

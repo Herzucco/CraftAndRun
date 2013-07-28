@@ -75,6 +75,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			default:
 			break;
 		}
+		
+		InputsManager.instance.update( deltaTime );
 	}
 	
 	Game.prototype.render = function( context )
@@ -98,6 +100,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			default:
 			break;
 		}
+		
+		InputsManager.instance.render( context );
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 
