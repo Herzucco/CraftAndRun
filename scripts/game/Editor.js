@@ -50,14 +50,13 @@ define( ["game/InputsManager"],function(InputsManager)
 			if(InputsManager.instance[65] && this.cursor.type>0){
 				this.cursor.type--;
 				this.locked = true;
+				this.tiles[this.cursor.position] = this.allTiles[this.cursor.type];
 			}
 			if(InputsManager.instance[69] && this.cursor.type < this.allTiles.length-1){
 				this.cursor.type++;
 				this.locked = true;
+				this.tiles[this.cursor.position] = this.allTiles[this.cursor.type];
 			}
-		}
-		if(InputsManager.instance[90]){
-			this.tiles[this.cursor.position] = this.allTiles[this.cursor.type];
 		}
 		if(InputsManager.instance[13]){
 			var empty = true;
