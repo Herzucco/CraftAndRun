@@ -17,26 +17,18 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.fixdef    = new Box2D.FixtureDef();	
 		this.bodydef   = new Box2D.BodyDef();
 		this.ship = new Ship(this.world, [canvas.width / 2 / SCALE, 14]);
-		var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
-		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
-		
 		if(!localStorage.getItem("buildNRun_ship")){
-			this.ship.addModule("upper-top", "collider");
-			this.ship.addModule("middle-top", "collider");
-			this.ship.addModule("middle-left", "collider");
-			this.ship.addModule("middle-right", "collider");
-			this.ship.addModule("bottom-left", "propulsor");
-			this.ship.addModule("bottom-right", "propulsor");
+			this.ship_save = window.myShip;
 		} else{
-
 			var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
-			var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
-			for(var i =0, j = ship_save.length; i<j; i++){
-				if(ship_save[i]!== "void"){
-					this.ship.addModule(AssosArray[i], ship_save[i]);
-				}
+		}
+		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"];
+		for(var i =0, j = ship_save.length; i<j; i++){
+			if(ship_save[i]!== "void"){
+				this.ship.addModule(AssosArray[i], ship_save[i]);
 			}
 		}
+	//	}
 
 		//this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5));
 
@@ -52,17 +44,13 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.fixdef.friction = 0.5;
 		this.fixdef.restitution = 0.0;
 		
-	/*	var curve = Box2D.CosineWave( canvas.width )
-			, y = canvas.height * (3 / 4) / SCALE
-
 		this.bodydef.type = Box2D.Body.b2_staticBody;
 		this.bodydef.position.Set(16, 18);
 		this.fixdef.shape = new Box2D.PolygonShape();
 		this.fixdef.shape.SetAsBox(14,1);
 		this.bottom = this.world.CreateBody(this.bodydef).CreateFixture(this.fixdef);
-	}
 
-			this.bodydef.type = Box2D.Body.b2_staticBody;
+		/*	this.bodydef.type = Box2D.Body.b2_staticBody;
 
 			this.bodydef.position.Set(x, y);
 

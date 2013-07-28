@@ -82,6 +82,7 @@ define( ["game/InputsManager"],function(InputsManager)
 					ship_JSON[i] = this.tiles[i];
 				}
 				localStorage.setItem("buildNRun_ship", JSON.stringify(ship_JSON))
+				window.myShip = JSON.stringify(ship_JSON);
 				Game.initLevel();
 				Game.closeEditor();
 			}

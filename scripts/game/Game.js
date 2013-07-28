@@ -26,7 +26,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		this.canvas  = document.getElementById( canvasID );
 		this.context = this.canvas.getContext( "2d" );
 		
-		this.state = "game";
+		this.state = "pressStart";
 		this.pressStart = new PressStart();
 		this.level = new Level( this.canvas, this.context );
 		
