@@ -3,7 +3,8 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 	var SCALE = 30;
 	var Collider = function(shape, size, position, world, force)
 	{
-		this.hp = 10;
+		this.hp = 5;
+		this.limit = 0;
 		this.parent = parent;
 		this.force = force || 0;
 		this.fixdef    = new Box2D.FixtureDef();
@@ -32,6 +33,12 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 	}
 	Collider.prototype.update = function(deltaTime, world)
 	{
+		var position = this.body.GetPosition();
+		if(position.y*30 <= this.limit)
+		{
+			position.y = this.limit/30;
+			this.body.SetPosition(position);
+		}
 		//destroy Joint when HP fails
 		if ( this.hp <= 0 && typeof( this.joint ) !== "undefined" )
 		{

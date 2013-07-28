@@ -83,7 +83,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		//module hit print type
 		if ( module instanceof Collider && obstacle.tag !== "wind" && obstacle.tag !== "collectible")
 		{
-			module.hp = Math.max( 0, module.hp - 0.5 );
+			module.hp = Math.max( 0, module.hp - 1);
 		}
 	}
 	
@@ -132,13 +132,14 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 						oneAlive = true;
 					if(this.modulesSlots[i].hp <= 0)
 					{
-						this.modulesSlots[i] = {};
+						this.modulesSlots[i].disabled = true;
 					}
 				}
 			}
 
 			if(!oneAlive)
 				this.die();
+
 		}
 	}
 	Ship.prototype.die = function()
@@ -175,7 +176,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 			var nbMods = 0;
 			for(var i in this.modulesSlots)
 			{
-				if(this.modulesSlots[i] instanceof Collider)
+				if(this.modulesSlots[i] instanceof Collider && !this.modulesSlots[i].disabled)
 				{
 					nbMods++;
 					if(i.split("-")[1] == "left" || i.split("-")[1] == "top")
@@ -198,7 +199,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 			var nbMods = 0;
 			for(var i in this.modulesSlots)
 			{
-				if(this.modulesSlots[i] instanceof Collider)
+				if(this.modulesSlots[i] instanceof Collider && !this.modulesSlots[i].disabled)
 				{
 					nbMods++;
 					if(i.split("-")[1] == "right" || i.split("-")[1] == "top")
