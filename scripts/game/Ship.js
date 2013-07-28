@@ -161,47 +161,41 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	}
 	Ship.prototype.checkInputs = function()
 	{
-		if(InputsManager.instance["39"] == true)
-		{
-			for(var i in this.modulesSlots)
-			{
-				if(i.split("-")[1] == "left" && this.modulesSlots[i] instanceof Collider )
-				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					module.body.ApplyForce(force, module.body.GetPosition());
-				}
-			}
-		}
 		if(InputsManager.instance["37"] == true)
 		{
+			var haveMoved = false;
 			for(var i in this.modulesSlots)
 			{
-				if(i.split("-")[1] == "right" && this.modulesSlots[i] instanceof Collider)
+				if((i.split("-")[1] == "left" || i.split("-")[1] == "top") && this.modulesSlots[i] instanceof Collider )
 				{
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
 					direction.x *= -1;
 					var force = Vectors.mult(direction, module.force);
 					module.body.ApplyForce(force, module.body.GetPosition());
+					haveMoved = true;
 				}
 			}
+			if(haveMoved)
+				this.score++;
 		}
-		if(InputsManager.instance["38"] == true)
+		if(InputsManager.instance["39"] == true)
 		{
+			var haveMoved = false;
 			for(var i in this.modulesSlots)
 			{
-				if(i.split("-")[1] == "top" && this.modulesSlots[i] instanceof Collider)
+				if((i.split("-")[1] == "right" || i.split("-")[1] == "top") && this.modulesSlots[i] instanceof Collider)
 				{
 					var module = this.modulesSlots[i];
 					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
 					direction.x *= -1;
 					var force = Vectors.mult(direction, module.force);
 					module.body.ApplyForce(force, module.body.GetPosition());
+					haveMoved = true;
 				}
 			}
+			if(haveMoved)
+				this.score++;
 		}
 	}
 	Ship.prototype.constructor = Ship;

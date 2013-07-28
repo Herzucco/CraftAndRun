@@ -101,8 +101,6 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		}
 		else
 		{
-			if(!this.ship.dead)
-				this.ship.score++;
 			
 			this.checkTimers(deltaTime)
 			this.moveBackground(deltaTime);
@@ -114,7 +112,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 				}
 			}
 		}
-		this.ship.update(deltaTime);
+		if(!this.ship.dead)
+				this.ship.update(deltaTime);
 		this.world.Step(1 / 60, 10, 10);
 		this.world.ClearForces();
 
