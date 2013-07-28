@@ -22,6 +22,21 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		for(var i =0, j = 4; i<j; i++){
 		//	if(ship_save[i]!== "void"){
 				this.ship.addModule(AssosArray[i], "propulsor");
+		if(!localStorage.getItem("buildNRun_ship")){
+			this.ship.addModule("upper-top", "collider");
+			this.ship.addModule("middle-top", "collider");
+			this.ship.addModule("middle-left", "collider");
+			this.ship.addModule("middle-right", "collider");
+			this.ship.addModule("bottom-left", "propulsor");
+			this.ship.addModule("bottom-right", "propulsor");
+		} else{
+
+			var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
+			var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
+			for(var i =0, j = ship_save.length; i<j; i++){
+				if(ship_save[i]!== "void"){
+					this.ship.addModule(AssosArray[i], ship_save[i]);
+				}
 			}
 	//	}
 
