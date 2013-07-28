@@ -101,6 +101,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		}
 		else
 		{
+			if(!this.ship.dead)
+				this.ship.score++;
+			
 			this.checkTimers(deltaTime)
 			this.moveBackground(deltaTime);
 			if(!!this.bottom){
@@ -155,11 +158,11 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		*/
 		
 		context.save();
-		
 		context.translate( -camPos.x, -camPos.y );
 			this.world.DrawDebugData();
 		
 		context.restore();
+		this.ship.render(context);
 	}
 	
 	Level.prototype.checkWalls = function() {

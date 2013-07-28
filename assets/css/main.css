@@ -30,3 +30,8 @@ canvas {
   top: 0;
   left: 0;
 }
+@font-face {
+    font-family: MenuFont;
+    src: url(../menu/FatCat.otf);
+    font-weight:400;
+}
