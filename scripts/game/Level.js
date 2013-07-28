@@ -9,9 +9,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.walls = [];
 		this.collectibles = [];
 		this.obstacles = [];
-		this.collectibles_timer = 15+(Math.random()*15);
-		this.obstacles_timer = 10+Math.random()*5;
-		this.winds_timer = 20+(Math.random()*40);
+		this.collectibles_timer = 5+(Math.random()*5);
+		this.obstacles_timer = 5+Math.random()*10;
+		// this.winds_timer = 20+(Math.random()*40);
 		this.winds = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
 		this.debugDraw = new Box2D.DebugDraw();
@@ -147,7 +147,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	Level.prototype.addCollectibles = function() {
 		var nbr = 1+(Math.random()*5)>>0;
 		var x = (10+Math.random()*18)>>0;
-		this.collectibles_timer += 15+(Math.random()*15);
+		this.collectibles_timer += 5+(Math.random()*5);
 		for(var i = 0; i < nbr; i++){
 			this.collectibles.push(new Collectible(this.world, [x, -8+2*i]));
 		}
@@ -164,7 +164,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		var size = [4*ratio,5*ratio];
 		var direction = Math.random()>0.5? "left" : "right";
 		var position = direction === "right"? [30-size[0], -5] : [7,-5]
-		this.obstacles_timer += 20+(Math.random()*40);
+		this.obstacles_timer += 5+(Math.random()*10);
 		this.obstacles.push(new Obstacle(this.world, position, size, direction));
 	}
 	Level.prototype.checkTimers = function(deltaTime)
