@@ -2,6 +2,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 {
 	var Ship = function(world, position) 
 	{
+		this.collectibles = 0;
 		this.dead = false;
 		this.score = 0;
 		this.world = world;
@@ -38,9 +39,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		{
 			case "collider" :
 				this.modulesSlots[slot] = new Collider("square", [0.5,0.5], [position.x+this.position[0], position.y+this.position[1]], this.world);
+				this.modulesSlots[slot].parent = this;
 			break;
 			case "propulsor" :
 				this.modulesSlots[slot] = new Propulsor("square", [0.5,0.5], [position.x+this.position[0], position.y+this.position[1]], this.world);
+				this.modulesSlots[slot].parent = this;
 			break;
 		}
 		if(this.nbModules > 0)
@@ -97,7 +100,8 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 			return;
 		
 		if(bodies[1-shipIndex].tag=== "collectible"){
-			this.score += 100;
+			bodies[shipIndex].module.parent.score += 100;
+			bodies[shipIndex].module.parent.collectibles++;
 			bodies[1-shipIndex].collectible.hp = 0;
 			contact.SetEnabled( false );
 		}else{
@@ -152,6 +156,11 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		context.font = "Bold 47px MenuFont";
 	    context.fillText(""+this.score+"", 800, 50);
 	    context.strokeText(""+this.score+"", 800, 50);
+
+	    context.drawImage(window.Images.collectibles, 0,0,466,1278, 730, 60, 40,40);
+	    console.log(this.collectibles);
+	    context.fillText("x "+this.collectibles+"", 800, 100);
+	    context.strokeText("x "+this.collectibles+"", 800, 100);
 
 	    for(var key in this.modulesSlots){
 	    	if(this.modulesSlots[key] instanceof Collider){

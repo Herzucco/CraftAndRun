@@ -101,11 +101,9 @@ define( ["game/InputsManager"],function(InputsManager)
         context.drawImage(window.Images.editor_bg,0,0,canvas.width,canvas.height);
 		for(var i = 0, j = this.tiles.length; i < j; i++){
 			if(this.tiles[i] === "void"){
-				context.fillStyle = "#000000";
 	        	context.drawImage(window.Images.void, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
 			} else if(this.tiles[i] === "propulsor"){
-				context.fillStyle = "#999966";
-				context.fillRect(480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight, this.tileWidth, this.tileHeight);
+				context.drawImage(window.Images.carot, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
 			} else if(this.tiles[i] === "collider"){
 				context.fillStyle = "#99FF66";
 	        	context.drawImage(window.Images.crate, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
@@ -116,13 +114,10 @@ define( ["game/InputsManager"],function(InputsManager)
 		context.strokeRect(480+(this.cursor.position%3)*this.tileWidth, 93.5+(this.cursor.position/3>>0)*this.tileHeight, this.tileWidth, this.tileHeight)
 		context.lineWidth = 3;
 		if(this.allTiles[this.cursor.type] === "void"){
-			context.fillStyle = "#000000";
 			context.drawImage(window.Images.void, 280, 220, this.tileWidth, this.tileHeight);
 		} else if(this.allTiles[this.cursor.type] === "propulsor"){
-			context.fillStyle = "#999966";
-			context.fillRect(280, 220, this.tileWidth, this.tileHeight);
+	        context.drawImage(window.Images.carot,280, 220,this.tileWidth,this.tileHeight);
 		} else if(this.allTiles[this.cursor.type] === "collider"){
-			context.fillStyle = "#99FF66";
 	        context.drawImage(window.Images.crate,280, 220,this.tileWidth,this.tileHeight);
 		}	
 		context.lineWidth = 1;

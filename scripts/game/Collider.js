@@ -4,7 +4,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 	var Collider = function(shape, size, position, world, force)
 	{
 		this.hp = 10;
-	
+		this.parent = parent;
 		this.force = force || 0;
 		this.fixdef    = new Box2D.FixtureDef();
 		this.bodydef   = new Box2D.BodyDef();
@@ -28,6 +28,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 		
 		this.body.tag    = "ship";
 		this.body.module = this;
+		this.body.parent = parent;
 	}
 	Collider.prototype.update = function(deltaTime, world)
 	{
