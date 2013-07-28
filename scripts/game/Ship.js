@@ -147,9 +147,17 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	}
 	Ship.prototype.render = function(context)
 	{
+		context.strokeStyle = "#FFFFFF";
 		context.fillStyle = "#000000";
 		context.font = "Bold 47px MenuFont";
 	    context.fillText(""+this.score+"", 800, 50);
+	    context.strokeText(""+this.score+"", 800, 50);
+
+	    for(var key in this.modulesSlots){
+	    	if(this.modulesSlots[key] instanceof Collider){
+	    		this.modulesSlots[key].render(context);
+	    	}
+	    }
 	}
 	Ship.prototype.checkInputs = function()
 	{
