@@ -25,7 +25,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 			}
 		}
 
-		this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5));
+		//this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5));
 
 		this.debugDraw.SetSprite( context );
 		this.debugDraw.SetDrawScale(SCALE);
