@@ -19,9 +19,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.ship = new Ship(this.world, [canvas.width / 2 / SCALE, 14]);
 		var ship_save = JSON.parse(localStorage.getItem("buildNRun_ship"));
 		var AssosArray = ["upper-left", "upper-top", "upper-right", "middle-left", "middle-top", "middle-right", "lower-left", "lower-top", "lower-right"]
-		for(var i =0, j = 4; i<j; i++){
-		//	if(ship_save[i]!== "void"){
-				this.ship.addModule(AssosArray[i], "propulsor");
+		
 		if(!localStorage.getItem("buildNRun_ship")){
 			this.ship.addModule("upper-top", "collider");
 			this.ship.addModule("middle-top", "collider");
@@ -38,7 +36,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 					this.ship.addModule(AssosArray[i], ship_save[i]);
 				}
 			}
-	//	}
+		}
 
 		//this.winds.push(new Wind([15, 2],[16, 10], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, 5));
 
