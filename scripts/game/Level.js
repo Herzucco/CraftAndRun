@@ -3,6 +3,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	var SCALE = 30;
 	var Level = function( canvas, context )
 	{
+		this.time = 0;
 		this.start = false;
 		this.canvas = canvas;
 		this.walls = [];
@@ -121,10 +122,11 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	
 	Level.prototype.render = function( context, canvas )
 	{
-		var bg_position = this.ship.score > 18877 ? 0: 18877- canvas.height - this.ship.score;
-		var wall_position = this.ship.score*2 % 600;
+		console.log(this.ship.score+this.time);
+		console.log(this.ship.score);
+		var bg_position = this.ship.score+this.time > 18877 ? 0: 18877- canvas.height - (this.ship.score+this.time);
+		var wall_position = this.ship.score+this.time*2 % 600;
 
-		this.world.DrawDebugData();
 		context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
 		if(!!this.bottom){
 			context.drawImage(window.Images.ground,0,0,2440,556,0,this.bottom.GetBody().GetPosition().y*30-15, canvas.width/2, 30);
@@ -187,6 +189,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	}
 	Level.prototype.moveBackground = function(deltaTime)
 	{
+		this.time +=0.5;
 		for(var i = 0, j = this.collectibles.length; i<j; i++){
 				if(!!this.collectibles[i]){
 					this.collectibles[i].update(deltaTime, this.ship);
