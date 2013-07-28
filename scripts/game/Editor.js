@@ -123,13 +123,13 @@ define( ["game/InputsManager"],function(InputsManager)
 		context.lineWidth = 3;
 		if(this.allTiles[this.cursor.type] === "void"){
 			context.fillStyle = "#000000";
-			context.drawImage(voidImage, 380, 10, this.tileWidth, this.tileHeight);
+			context.drawImage(voidImage, 280, 220, this.tileWidth, this.tileHeight);
 		} else if(this.allTiles[this.cursor.type] === "propulsor"){
 			context.fillStyle = "#999966";
-			context.fillRect(380, 10, this.tileWidth, this.tileHeight);
+			context.fillRect(280, 220, this.tileWidth, this.tileHeight);
 		} else if(this.allTiles[this.cursor.type] === "collider"){
 			context.fillStyle = "#99FF66";
-	        context.drawImage(crate,380,10,this.tileWidth,this.tileHeight);
+	        context.drawImage(crate,280, 220,this.tileWidth,this.tileHeight);
 		}	
 		context.lineWidth = 1;
 		context.closePath();	
