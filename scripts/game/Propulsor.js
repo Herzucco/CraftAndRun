@@ -10,6 +10,16 @@ define( [ "game/Box2D", "game/Collider", "../../libs/vectors"], function( Box2D,
 	{
 		Collider.prototype.update.call( this, deltaTime, world );
 	}
+
+	Propulsor.prototype.render = function(context){
+		var position = this.body.GetPosition()
+		context.save();
+		context.translate(position.x*30,position.y*30);
+		context.rotate(this.body.GetAngle());
+		context.drawImage(window.Images.carot,0,0,729,1248, -15, -15, 30,30);
+		context.restore();
+	}
+
 	Propulsor.prototype.constructor = Collider;
 
 	return Propulsor;
