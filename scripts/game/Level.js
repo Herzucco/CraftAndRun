@@ -120,62 +120,24 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 
 	}
 	
-	Level.prototype.render = function( context, camPos )
+	Level.prototype.render = function( context, canvas )
 	{
-	/*
-		for ( var body = this.world.GetBodyList(); body !== null; body = body.GetNext() )
-		{
-			var pos = body.GetPosition();
-			console.log( pos );
-			context.save();
-			
-			context.translate( pos.x - camPos.x, pos.y - camPos.y );
-			context.rotate( body.GetAngle() );
-			
-			context.fillStyle   = "#00ff00";
-			context.strokeStyle = "#000000"; 
-			
-			var shape = body.GetFixtureList().GetShape();
-			if ( shape instanceof Box2D.PolygonShape )
-			{
-				context.fillRect( -body.sizes.w/2, -body.sizes.h/2, body.sizes.w, body.sizes.h );
-				context.strokeRect( -body.sizes.w/2, -body.sizes.h/2, body.sizes.w, body.sizes.h );
-			}
-			
-			context.fillStyle = "#ff0000";
-			if ( shape instanceof Box2D.CircleShape )
-			{
-				context.beginPath();
-				
-				context.arc( 0, 0, body.sizes.r, 0, 2 * Math.PI );
-				context.fill();
-				
-				context.stroke();
-			}
-			
-			context.restore();
+		var bg_position = this.ship.score > 18877 ? 0: 18877- canvas.height - this.ship.score;
+		var wall_position = this.ship.score*2 % 600;
+
+		this.world.DrawDebugData();
+		// context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
+		if(!!this.bottom){
+			context.drawImage(window.Images.ground,0,0,1440,556,0,this.bottom.GetBody().GetPosition()-15, canvas.width/2, 30);
+			context.drawImage(window.Images.ground,0,0,1440,556,canvas.width/2,this.bottom.GetBody().GetPosition()-15, canvas.width/2, 30);
 		}
-		*/
-		
-		context.save();
-		context.translate( -camPos.x, -camPos.y );
-			this.world.DrawDebugData();
-		
-		context.restore();
+		context.drawImage(window.Images.left_wall,0,0,1678,4552,-50,wall_position,150,600);
+		context.drawImage(window.Images.right_wall,0,0,1678,4552,canvas.width-100,wall_position,150,600);
+		context.drawImage(window.Images.left_wall,0,0,1678,4552,-50,wall_position-600,150,600);
+		context.drawImage(window.Images.right_wall,0,0,1678,4552,canvas.width-100,wall_position-600,150,600);
+
+
 		this.ship.render(context);
-	}
-	
-	Level.prototype.checkWalls = function() {
-		var create = true;
-		for(var i=0, j=this.walls.length; i < j; i++) {
-			if(this.walls[i].y <= Ship.y) {
-				create = false;
-			}
-		}
-		if(create && false){
-			this.walls.push(new Wall(this, Ship.y+20, "left"));
-			this.walls.push(new Wall(this, Ship.y+20, "right"));
-		}
 	}
 
 	Level.prototype.addCollectibles = function() {

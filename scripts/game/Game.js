@@ -105,7 +105,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			break;
 			case "game":
 				context.fillRect( 0, 0, this.canvas.width, this.canvas.height );
-				this.level.render( context, this.camera.position );
+				this.level.render( context, this.canvas );
 			break;
 			default:
 			break;

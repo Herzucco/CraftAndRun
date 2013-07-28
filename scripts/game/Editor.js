@@ -2,12 +2,6 @@ define( ["game/InputsManager"],function(InputsManager)
 {
 	
 	var SCALE = 30;
-	var crate = new Image ();
-    crate.src = 'assets/props/crate.jpg'
-	var voidImage = new Image ();
-    voidImage.src = 'assets/props/void.png'
-	var background = new Image ();
-    background.src = 'assets/menu/background_custom.jpg';
 	var Editor = function( canvas, context )
 	{
 		this.locked = false;
@@ -104,17 +98,17 @@ define( ["game/InputsManager"],function(InputsManager)
 		context.lineWidth = 2;
 		context.fillStyle = "#FFFFFF";
 		context.fillRect(0,0,canvas.width, canvas.height);
-        context.drawImage(background,0,0,canvas.width,canvas.height);
+        context.drawImage(window.Images.editor_bg,0,0,canvas.width,canvas.height);
 		for(var i = 0, j = this.tiles.length; i < j; i++){
 			if(this.tiles[i] === "void"){
 				context.fillStyle = "#000000";
-	        	context.drawImage(voidImage, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
+	        	context.drawImage(window.Images.void, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
 			} else if(this.tiles[i] === "propulsor"){
 				context.fillStyle = "#999966";
 				context.fillRect(480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight, this.tileWidth, this.tileHeight);
 			} else if(this.tiles[i] === "collider"){
 				context.fillStyle = "#99FF66";
-	        	context.drawImage(crate, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
+	        	context.drawImage(window.Images.crate, 480+(i%3)*this.tileWidth, 93.5+(i/3>>0)*this.tileHeight,this.tileWidth,this.tileHeight);
 			}
 		}
 		context.strokeStyle = "#FF0000";
@@ -123,13 +117,13 @@ define( ["game/InputsManager"],function(InputsManager)
 		context.lineWidth = 3;
 		if(this.allTiles[this.cursor.type] === "void"){
 			context.fillStyle = "#000000";
-			context.drawImage(voidImage, 280, 220, this.tileWidth, this.tileHeight);
+			context.drawImage(window.Images.void, 280, 220, this.tileWidth, this.tileHeight);
 		} else if(this.allTiles[this.cursor.type] === "propulsor"){
 			context.fillStyle = "#999966";
 			context.fillRect(280, 220, this.tileWidth, this.tileHeight);
 		} else if(this.allTiles[this.cursor.type] === "collider"){
 			context.fillStyle = "#99FF66";
-	        context.drawImage(crate,280, 220,this.tileWidth,this.tileHeight);
+	        context.drawImage(window.Images.crate,280, 220,this.tileWidth,this.tileHeight);
 		}	
 		context.lineWidth = 1;
 		context.closePath();	

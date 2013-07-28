@@ -38,6 +38,15 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager"], function( Box2D, le
 			this.joint = undefined; //force undefined
 		}
 	};
+
+	Collider.prototype.render = function(context){
+		var position = this.body.GetPosition()
+		context.save();
+		context.translate(position.x*30,position.y*30);
+		context.rotate(this.body.GetAngle());
+		context.drawImage(window.Images.crate,0,0,1327,1327, -15, -15, 30,30);
+		context.restore();
+	}
 	
 	Collider.prototype.constructor = Collider;
 

@@ -14,7 +14,7 @@ define( [ "game/Box2D"], function( Box2D )
 		this.bodydef.position.Set(x, y);
 		
 		this.fixdef.shape = new Box2D.PolygonShape();
-		this.fixdef.shape.SetAsBox(1,20);
+		this.fixdef.shape.SetAsBox(2,20);
 		
 		this.body = Level.world.CreateBody( this.bodydef ).CreateFixture( this.fixdef );
 	}
