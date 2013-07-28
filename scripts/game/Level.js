@@ -138,6 +138,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		for(var key in this.collectibles){
 			this.collectibles[key].render(context);
 		}
+		for(var key in this.obstacles){
+			this.obstacles[key].render(context);
+		}
 		this.ship.render(context);
 	}
 
@@ -157,7 +160,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.winds.push(new Wind(size,[12,-5], this.world, {x : {min : -5, max : -10}, y : {min : 0, max : 0}}, direction, change));
 	}
 	Level.prototype.addObstacles = function() {
-		var size = [4+Math.random()*3>>0,1.5];
+		var ratio = 0.5+(Math.random()/2);
+		var size = [4*ratio,5*ratio];
 		var direction = Math.random()>0.5? "left" : "right";
 		var position = direction === "right"? [30-size[0], -5] : [7,-5]
 		this.obstacles_timer += 20+(Math.random()*40);

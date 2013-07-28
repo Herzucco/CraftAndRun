@@ -100,7 +100,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 			return;
 		
 		if(bodies[1-shipIndex].tag=== "collectible"){
-			bodies[shipIndex].module.parent.score += 100;
+			// bodies[shipIndex].module.parent.score += 100;
 			bodies[shipIndex].module.parent.collectibles++;
 			bodies[1-shipIndex].collectible.hp = 0;
 			contact.SetEnabled( false );
@@ -157,7 +157,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	    context.fillText("Score : "+this.score+"", 720, 50);
 	    context.strokeText("Score : "+this.score+"", 720, 50);
 
-	    context.drawImage(window.Images.collectibles, 0,0,466,1278, 730, 60, 40,40);
+	    context.drawImage(window.Images.collectibles1, 0,0,1275,1403, 730, 60, 40,40);
 	    context.fillText("x "+this.collectibles+"", 800, 100);
 	    context.strokeText("x "+this.collectibles+"", 800, 100);
 

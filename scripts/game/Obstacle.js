@@ -2,6 +2,7 @@ define( [ "game/Box2D", "game/Collider"], function( Box2D, Collider)
 {
 	var Obstacle = function(world, position, size, direction) 
 	{
+		this.size = size;
 		this.vitesse = 0.1;
 		this.direction;
 		this.world = world;
@@ -39,6 +40,13 @@ define( [ "game/Box2D", "game/Collider"], function( Box2D, Collider)
 						break;
 			}
 		}
+	}
+	Obstacle.prototype.render = function(context)
+	{
+		if(!this.body)
+			console.log('toto');
+			context.drawImage(window.Images.obstacle,0,0,1025,1569,this.body.GetPosition().x*30-15,this.body.GetPosition().y*30-15,this.size[0]*30,this.size[1]*30);
+	
 	}
 
 	Obstacle.prototype.constructor = Obstacle;

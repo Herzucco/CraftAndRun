@@ -46,16 +46,30 @@ define( ["game/InputsManager"],function(InputsManager)
 		window.Images.carot.src = "assets/props/carrote.png";
 		window.Images.carot.onload = function(){imagesLoaded++};
 
-		window.Images.collectibles = new Image();
-		window.Images.collectibles.src = "assets/props/coca.png";
-		window.Images.collectibles.onload = function(){imagesLoaded++};
+		window.Images.collectibles1 = new Image();
+		window.Images.collectibles1.src = "assets/props/oeuf_or.png";
+		window.Images.collectibles1.onload = function(){imagesLoaded++};
+
+		window.Images.collectibles2 = new Image();
+		window.Images.collectibles2.src = "assets/props/oeuf_bleu.png";
+		window.Images.collectibles2.onload = function(){imagesLoaded++};
+
+		window.Images.collectibles3 = new Image();
+		window.Images.collectibles3.src = "assets/props/oeuf_blanc.png";
+		window.Images.collectibles3.onload = function(){imagesLoaded++};
+
+		window.Images.obstacle = new Image();
+		window.Images.obstacle.src = "assets/props/obstacle.png";
+		window.Images.obstacle.onload = function(){imagesLoaded++};
+		
+		window.setTimeout(function(){Game.closeSplashScreen();},500);
 	}
 
 	Splash_screen.prototype.waitLoaded = function(){
-		if(imagesLoaded === Object.keys(window.Images).length){
-			Game.closeSplashScreen();
-		} else {
-		}
+		// if(imagesLoaded === Object.keys(window.Images).length){
+		// 	Game.closeSplashScreen();
+		// } else {
+		// }
 	}
 
 	Splash_screen.prototype.constructor = Splash_screen;
