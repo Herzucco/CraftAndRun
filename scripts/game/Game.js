@@ -101,7 +101,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			break;
 		}
 		
-		InputsManager.instance.render( context );
+		//InputsManager.instance.render( context );
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 
