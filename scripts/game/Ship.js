@@ -158,7 +158,6 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 	    context.strokeText("Score : "+this.score+"", 720, 50);
 
 	    context.drawImage(window.Images.collectibles, 0,0,466,1278, 730, 60, 40,40);
-	    console.log(this.collectibles);
 	    context.fillText("x "+this.collectibles+"", 800, 100);
 	    context.strokeText("x "+this.collectibles+"", 800, 100);
 
