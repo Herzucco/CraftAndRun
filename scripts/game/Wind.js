@@ -2,6 +2,7 @@ define( [ "game/Box2D", "../../libs/vectors"], function( Box2D, Vectors)
 {
 	var Wind = function(size, position, world, force, direction, timeToChange)
 	{
+		this.vitesse = 0.05;
 		this.size = size;
 		this.position = position;
 		this.world = world;
@@ -40,6 +41,12 @@ define( [ "game/Box2D", "../../libs/vectors"], function( Box2D, Vectors)
 	{
 		module.body.ApplyForce(this.currentForce, module.body.GetPosition());
 	}
+	
+	Wind.prototype.move = function(deltaTime, world)
+	{
+		this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+this.vitesse});
+	}
+
 	Wind.prototype.setForce = function()
 	{
 		var newForce =

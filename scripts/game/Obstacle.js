@@ -2,6 +2,7 @@ define( [ "game/Box2D", "game/Collider"], function( Box2D, Collider)
 {
 	var Obstacle = function(world, position, size, direction) 
 	{
+		this.vitesse = 0.1;
 		this.direction;
 		this.world = world;
 		this.fixdef    = new Box2D.FixtureDef();
@@ -22,6 +23,12 @@ define( [ "game/Box2D", "game/Collider"], function( Box2D, Collider)
 		this.body.collectible = this;
 
 	}
+
+	Obstacle.prototype.update = function(deltaTime, world)
+	{
+		this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+this.vitesse});
+	}
+
 	Obstacle.prototype.constructor = Obstacle;
 
 	return Obstacle;
