@@ -1,7 +1,8 @@
-define( [ "game/Box2D", "../../libs/vectors"], function( Box2D, Vectors)
+define( [ "game/Box2D", "../../libs/vectors", "game/Collider"], function( Box2D, Vectors, Collider)
 {
 	var Wind = function(size, position, world, force, direction, timeToChange)
 	{
+		this.vitesse = 0.05;
 		this.size = size;
 		this.position = position;
 		this.world = world;
@@ -29,17 +30,31 @@ define( [ "game/Box2D", "../../libs/vectors"], function( Box2D, Vectors)
 		this.body.tag    = "wind";
 		this.body.parent = this;
 	}
-	Wind.prototype.update = function(deltaTime)
+	Wind.prototype.update = function(deltaTime, world, ship)
 	{
 		if(this.timer/60 >= this.timeToChange)
 			this.setForce();
 
 		this.timer++;
+		for(var key in ship.modulesSlots) 
+		{
+			if(ship.modulesSlots[key] instanceof Collider)
+			{
+				var module = ship.modulesSlots[key];
+				var speed = module.body.GetLinearVelocity().y/-25;
+				if(speed < 0)
+					speed = 0;
+			
+				this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+speed+this.vitesse});
+				break;
+			}
+		}
 	}
 	Wind.prototype.blow = function(module)
 	{
 		module.body.ApplyForce(this.currentForce, module.body.GetPosition());
 	}
+
 	Wind.prototype.setForce = function()
 	{
 		var newForce =
