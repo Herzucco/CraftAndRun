@@ -9,7 +9,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.walls = [];
 		this.collectibles = [];
 		this.obstacles = [];
-		this.collectibles_timer = Math.random()*30;
+		this.collectibles_timer = 15+(Math.random()*15);
 		this.obstacles_timer = 10+Math.random()*20;
 		this.winds_timer = 20+(Math.random()*40);
 		this.winds = [];
@@ -144,7 +144,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	Level.prototype.addCollectibles = function() {
 		var nbr = 1+(Math.random()*5)>>0;
 		var x = (10+Math.random()*18)>>0;
-		this.collectibles_timer += Math.random()*30;
+		this.collectibles_timer += 15+(Math.random()*15);
 		for(var i = 0; i < nbr; i++){
 			this.collectibles.push(new Collectible(this.world, [x, -8+2*i]));
 		}
