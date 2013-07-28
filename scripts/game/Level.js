@@ -10,7 +10,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.collectibles = [];
 		this.obstacles = [];
 		this.collectibles_timer = 15+(Math.random()*15);
-		this.obstacles_timer = 10+Math.random()*20;
+		this.obstacles_timer = 10+Math.random()*5;
 		this.winds_timer = 20+(Math.random()*40);
 		this.winds = [];
 		this.world     = new Box2D.World(new Box2D.Vec2(0, 10), true);
