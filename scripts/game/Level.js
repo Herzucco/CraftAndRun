@@ -122,8 +122,6 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 	
 	Level.prototype.render = function( context, canvas )
 	{
-		console.log(this.ship.score+this.time);
-		console.log(this.ship.score);
 		var bg_position = this.ship.score+this.time > 18877 ? 0: 18877- canvas.height - (this.ship.score+this.time);
 		var wall_position = this.ship.score+this.time*2 % 600;
 
