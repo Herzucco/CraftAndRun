@@ -2,6 +2,7 @@ define( [ "game/Box2D", "game/InputsManager", "game/Collider", "game/Propulsor",
 {
 	var Collectible = function(world, position) 
 	{
+		this.vitesse = 0.1;
 		this.hp = 1;
 		this.world = world;
 		this.fixdef    = new Box2D.FixtureDef();
@@ -30,6 +31,7 @@ define( [ "game/Box2D", "game/InputsManager", "game/Collider", "game/Propulsor",
 			this.world.DestroyBody( this.body );
 			this.joint = undefined; //force undefined
 		}
+		this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+this.vitesse});
 	};
 	
 	Collectible.prototype.constructor = Collectible;
