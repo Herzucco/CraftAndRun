@@ -150,8 +150,8 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		context.strokeStyle = "#FFFFFF";
 		context.fillStyle = "#000000";
 		context.font = "Bold 30px MenuFont";
-	    context.fillText("Score : "+this.score+"", 750, 50);
-	    context.strokeText("Score : "+this.score+"", 750, 50);
+	    context.fillText("Score : "+this.score+"", 720, 50);
+	    context.strokeText("Score : "+this.score+"", 720, 50);
 
 	    for(var key in this.modulesSlots){
 	    	if(this.modulesSlots[key] instanceof Collider){
@@ -164,38 +164,48 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		if(InputsManager.instance["37"] == true)
 		{
 			var haveMoved = false;
+			var nbMods = 0;
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "left" || i.split("-")[1] == "top") && this.modulesSlots[i] instanceof Collider )
+				if(this.modulesSlots[i] instanceof Collider)
 				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					module.body.ApplyForce(force, module.body.GetPosition());
-					haveMoved = true;
+					nbMods++;
+					if(i.split("-")[1] == "left" || i.split("-")[1] == "top")
+					{
+						var module = this.modulesSlots[i];
+						var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+						direction.x *= -1;
+						var force = Vectors.mult(direction, module.force);
+						module.body.ApplyForce(force, module.body.GetPosition());
+						haveMoved = true;
+					}
 				}
 			}
 			if(haveMoved && start)
-				this.score++;
+				this.score+= 10 - nbMods;
 		}
 		if(InputsManager.instance["39"] == true)
 		{
 			var haveMoved = false;
+			var nbMods = 0;
 			for(var i in this.modulesSlots)
 			{
-				if((i.split("-")[1] == "right" || i.split("-")[1] == "top") && this.modulesSlots[i] instanceof Collider)
+				if(this.modulesSlots[i] instanceof Collider)
 				{
-					var module = this.modulesSlots[i];
-					var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
-					direction.x *= -1;
-					var force = Vectors.mult(direction, module.force);
-					module.body.ApplyForce(force, module.body.GetPosition());
-					haveMoved = true;
+					nbMods++;
+					if(i.split("-")[1] == "right" || i.split("-")[1] == "top")
+					{
+						var module = this.modulesSlots[i];
+						var direction = module.body.GetLocalVector(new Box2D.Vec2(0,-1));
+						direction.x *= -1;
+						var force = Vectors.mult(direction, module.force);
+						module.body.ApplyForce(force, module.body.GetPosition());
+						haveMoved = true;
+					}
 				}
 			}
 			if(haveMoved && start)
-				this.score++;
+				this.score+= 10 - nbMods;
 		}
 	}
 	Ship.prototype.constructor = Ship;

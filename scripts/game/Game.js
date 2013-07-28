@@ -1,4 +1,4 @@
-define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "game/PressStart", "game/SplashScreen", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor, PressStart, Splash_screen)
+define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game/Editor", "game/PressStart", "game/SplashScreen", "game/AssetManager", "stats" ], function( Box2D, Level, InputsManager, Camera, Editor, PressStart, Splash_screen, AssetManager)
 {
 	var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
@@ -21,6 +21,9 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 		new Box2D();
 		new InputsManager();
 		
+		var path = {img:"", sound:"assets/sound/"};
+		new AssetManager(path);
+
 		this.camera = new Camera({x : 0, y : 0}, {x : 0, y : 0}, 1);
 		
 		this.canvas  = document.getElementById( canvasID );
@@ -47,10 +50,17 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 	Game.prototype.initLevel = function(){
 		this.level = new Level( this.canvas, this.context );
 		this.state = "game";
+
+		AssetManager.instance.cachedSounds["editor"].pause();
+		AssetManager.instance.cachedSounds["ingame"].loop = true;
+		AssetManager.instance.cachedSounds["ingame"].play();
 	}
 	Game.prototype.initEditor = function(){
 		this.editor = new Editor();
 		this.state = "editor";
+
+		AssetManager.instance.cachedSounds["editor"].loop = true;
+		AssetManager.instance.cachedSounds["editor"].play();
 	}
 	Game.prototype.closePressStart = function(){
 		delete this.pressStart;
@@ -91,6 +101,10 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 	
 	Game.prototype.render = function( context )
 	{
+		if (AssetManager.instance.loadAssets(context))
+		{
+			return;
+		}
 		switch(this.state){
 			case "index":
 			break;
@@ -111,7 +125,7 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			break;
 		}
 		
-		//InputsManager.instance.render( context );
+		InputsManager.instance.render( context );
 	}
 	
 	Game.prototype.loop = function( gameLoop ) 
