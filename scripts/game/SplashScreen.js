@@ -45,6 +45,10 @@ define( ["game/InputsManager"],function(InputsManager)
 		window.Images.carot = new Image();
 		window.Images.carot.src = "assets/props/carrote.png";
 		window.Images.carot.onload = function(){imagesLoaded++};
+
+		window.Images.collectibles = new Image();
+		window.Images.collectibles.src = "assets/props/coca.png";
+		window.Images.collectibles.onload = function(){imagesLoaded++};
 	}
 
 	Splash_screen.prototype.waitLoaded = function(){

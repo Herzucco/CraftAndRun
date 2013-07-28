@@ -8,7 +8,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.walls = [];
 		this.collectibles = [];
 		this.obstacles = [];
-		this.collectibles_timer = Math.random()*30;
+		this.collectibles_timer = Math.random()*3;
 		this.obstacles_timer = 10+Math.random()*20;
 		this.winds_timer = 2+(Math.random()*1);
 		this.winds = [];
@@ -128,8 +128,8 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		this.world.DrawDebugData();
 		context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
 		if(!!this.bottom){
-			context.drawImage(window.Images.ground,0,0,1440,556,0,this.bottom.GetBody().GetPosition()-15, canvas.width/2, 30);
-			context.drawImage(window.Images.ground,0,0,1440,556,canvas.width/2,this.bottom.GetBody().GetPosition()-15, canvas.width/2, 30);
+			context.drawImage(window.Images.ground,0,0,2440,556,0,this.bottom.GetBody().GetPosition().y*30-15, canvas.width/2, 30);
+			context.drawImage(window.Images.ground,0,0,2440,556,canvas.width/2,this.bottom.GetBody().GetPosition().y*30-15, canvas.width/2, 30);
 		}
 		context.drawImage(window.Images.left_wall,0,0,1678,4552,-50,wall_position,150,600);
 		context.drawImage(window.Images.right_wall,0,0,1678,4552,canvas.width-100,wall_position,150,600);
@@ -137,6 +137,9 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		context.drawImage(window.Images.right_wall,0,0,1678,4552,canvas.width-100,wall_position-600,150,600);
 
 
+		for(var key in this.collectibles){
+			this.collectibles[key].render(context);
+		}
 		this.ship.render(context);
 	}
 

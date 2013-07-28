@@ -47,6 +47,11 @@ define( [ "game/Box2D", "game/InputsManager", "game/Collider", "game/Propulsor",
 		}
 	};
 	
+	Collectible.prototype.render = function(context){
+		if(this.hp >0)
+			context.drawImage(window.Images.collectibles,0,0,466,1278,this.body.GetPosition().x*30-15,this.body.GetPosition().y*30-15,30-15,30);
+	}
+
 	Collectible.prototype.constructor = Collectible;
 
 	return Collectible;
