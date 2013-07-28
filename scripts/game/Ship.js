@@ -74,7 +74,7 @@ define( [ "game/Box2D", "game/InputsManager", "../../libs/vectors", "game/Wind",
 		//module hit print type
 		if ( module instanceof Collider )
 		{
-			module.hp = Math.max( 0, module.hp - 2 );
+			module.hp = Math.max( 0, module.hp - 0.5 );
 		}
 	}
 	
