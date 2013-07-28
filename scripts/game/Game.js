@@ -69,6 +69,9 @@ define( [ "game/Box2D", "game/Level", "game/InputsManager", "game/Camera", "game
 			case "game":
 				this.level.update( deltaTime );
 			break;
+			case "over":
+				this.gameover.update( deltaTime );
+			break;
 			default:
 			break;
 		}

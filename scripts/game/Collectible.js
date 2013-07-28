@@ -2,7 +2,7 @@ define( [ "game/Box2D", "game/InputsManager", "game/Collider", "game/Propulsor",
 {
 	var Collectible = function(world, position) 
 	{
-		this.vitesse = 0.1;
+		this.vitesse = 0.05;
 		this.hp = 1;
 		this.world = world;
 		this.fixdef    = new Box2D.FixtureDef();
@@ -23,7 +23,7 @@ define( [ "game/Box2D", "game/InputsManager", "game/Collider", "game/Propulsor",
 
 	}
 
-	Collectible.prototype.update = function(deltaTime, world)
+	Collectible.prototype.update = function(deltaTime, ship)
 	{
 		//destroy when HP fails
 		if ( this.hp <= 0 )
@@ -31,7 +31,20 @@ define( [ "game/Box2D", "game/InputsManager", "game/Collider", "game/Propulsor",
 			this.world.DestroyBody( this.body );
 			this.joint = undefined; //force undefined
 		}
-		this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+this.vitesse});
+
+		for(var key in ship.modulesSlots) 
+		{
+			if(ship.modulesSlots[key] instanceof Collider)
+			{
+				var module = ship.modulesSlots[key];
+				var speed = module.body.GetLinearVelocity().y/-25;
+				if(speed < 0)
+					speed = 0;
+			
+				this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+speed+this.vitesse});
+				break;
+			}
+		}
 	};
 	
 	Collectible.prototype.constructor = Collectible;

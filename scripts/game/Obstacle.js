@@ -24,9 +24,21 @@ define( [ "game/Box2D", "game/Collider"], function( Box2D, Collider)
 
 	}
 
-	Obstacle.prototype.update = function(deltaTime, world)
+	Obstacle.prototype.update = function(deltaTime, ship)
 	{
-		this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+this.vitesse});
+		for(var key in ship.modulesSlots) 
+		{
+			if(ship.modulesSlots[key] instanceof Collider)
+			{
+				var module = ship.modulesSlots[key];
+				var speed = module.body.GetLinearVelocity().y/-25;
+				if(speed < 0)
+					speed = 0;
+			
+				this.body.SetPosition({"x":this.body.GetPosition().x,"y":this.body.GetPosition().y+speed+this.vitesse});
+						break;
+			}
+		}
 	}
 
 	Obstacle.prototype.constructor = Obstacle;
