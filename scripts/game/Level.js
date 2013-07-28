@@ -126,7 +126,7 @@ define( [ "game/Box2D", "game/Wall", "game/Ship", "game/Wind", "game/Collectible
 		var wall_position = this.ship.score*2 % 600;
 
 		this.world.DrawDebugData();
-		// context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
+		context.drawImage(window.Images.game_bg,0,bg_position,1920,canvas.height, 0,0,canvas.width, canvas.height);
 		if(!!this.bottom){
 			context.drawImage(window.Images.ground,0,0,1440,556,0,this.bottom.GetBody().GetPosition()-15, canvas.width/2, 30);
 			context.drawImage(window.Images.ground,0,0,1440,556,canvas.width/2,this.bottom.GetBody().GetPosition()-15, canvas.width/2, 30);
